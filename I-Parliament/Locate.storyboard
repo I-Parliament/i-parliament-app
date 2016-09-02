@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHX-mQ-Dhf">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Locate-->
+        <scene sceneID="nYY-Ju-5VC">
+            <objects>
+                <navigationController id="hHX-mQ-Dhf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Locate" image="Locate" id="d6I-j3-v8Z"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5ou-A7-8hT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cJA-yK-zhf" kind="relationship" relationship="rootViewController" id="77E-Je-p85"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4RU-SO-CQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="116"/>
+        </scene>
+        <!--Locate-->
+        <scene sceneID="iva-rI-NgI">
+            <objects>
+                <viewController id="cJA-yK-zhf" customClass="LocateViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HND-KF-gt3"/>
+                        <viewControllerLayoutGuide type="bottom" id="yCJ-ee-R6M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dUN-yU-2ys">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Locate" id="zYZ-rh-kE8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lyi-XO-fbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753" y="116"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Locate" width="25" height="25"/>
+    </resources>
+</document>
