@@ -25,7 +25,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1c-Wh-2Qd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97" y="842"/>
+            <point key="canvasLocation" x="180" y="2334"/>
         </scene>
         <!--I-Parliament 🇮🇳-->
         <scene sceneID="k9D-gi-Z0s">
@@ -38,19 +38,13 @@
                     <view key="view" contentMode="scaleToFill" id="cWs-i3-zIy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="of6-T7-scf">
-                                <frame key="frameInset" minX="16" minY="72" width="343" height="538"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="I-Parliament 🇮🇳" id="J8e-kh-CX6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OO1-br-wBO" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1752.8" y="-576.1619190404798"/>
+            <point key="canvasLocation" x="1817" y="-547"/>
         </scene>
         <!--Home-->
         <scene sceneID="I0H-v3-pbq">
@@ -69,7 +63,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uO7-nM-3eY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="-575"/>
+            <point key="canvasLocation" x="966" y="-546"/>
         </scene>
         <!--Locate-->
         <scene sceneID="U94-qH-ULd">
@@ -86,7 +80,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoK-Cu-V8U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="116"/>
+            <point key="canvasLocation" x="966" y="144"/>
         </scene>
         <!--Locate-->
         <scene sceneID="xE1-Gn-BVr">
@@ -105,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fw-P7-XDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="116"/>
+            <point key="canvasLocation" x="1817" y="144"/>
         </scene>
         <!--Blog-->
         <scene sceneID="FH2-DJ-2dx">
@@ -122,7 +116,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnF-gm-8uf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="843"/>
+            <point key="canvasLocation" x="966" y="842"/>
         </scene>
         <!--Blog-->
         <scene sceneID="c76-Qh-73h">
@@ -141,13 +135,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ik-MF-5o7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="842"/>
+            <point key="canvasLocation" x="1817" y="842"/>
         </scene>
-        <!--Downloads-->
+        <!--Navigation Controller-->
         <scene sceneID="WWL-Kb-0TX">
             <objects>
                 <navigationController id="wK2-2X-sa4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Downloads" image="Downloads" id="Z4b-tw-nkC"/>
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="Z4b-tw-nkC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="al8-Px-CBq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -158,7 +152,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxk-Lg-dls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="1604"/>
+            <point key="canvasLocation" x="966" y="1592"/>
         </scene>
         <!--Downloads-->
         <scene sceneID="coL-J0-Ovs">
@@ -177,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YnT-ku-4gM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="1603"/>
+            <point key="canvasLocation" x="1817" y="1593"/>
         </scene>
         <!--Contact-->
         <scene sceneID="zXh-J6-ANI">
@@ -194,7 +188,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEk-Z4-vj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="2412"/>
+            <point key="canvasLocation" x="966" y="2334"/>
         </scene>
         <!--Contact-->
         <scene sceneID="ER5-lU-jlh">
@@ -213,13 +207,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpl-Wi-Jm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="2411"/>
+            <point key="canvasLocation" x="1817" y="2334"/>
         </scene>
     </scenes>
     <resources>
         <image name="Blog" width="25" height="25"/>
         <image name="Contact" width="25" height="25"/>
-        <image name="Downloads" width="25" height="25"/>
         <image name="Home" width="25" height="25"/>
         <image name="Locate" width="25" height="25"/>
     </resources>
