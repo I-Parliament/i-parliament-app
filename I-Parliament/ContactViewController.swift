@@ -11,22 +11,22 @@ import WebKit
 
 class ContactViewController: UIViewController {
 
-	var webView = WKWebView()
+	@IBOutlet weak var contactTextView: UITextView!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		navigationController?.tabBarItem.selectedImage = UIImage(named: "Contact Filled")
 		
-		guard let filePath = Bundle.main.path(forResource: "contact", ofType: "html") else {return}
-		let fileURL = URL(fileURLWithPath: filePath)
-		webView.loadFileURL(fileURL, allowingReadAccessTo: fileURL)
+//		guard let filePath = Bundle.main.path(forResource: "contact", ofType: "html") else {return}
+//		let fileURL = URL(fileURLWithPath: filePath)
+//		let stringOptions: [String: Any] = [
+//			NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+//			NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue
+//		]
+//		let attributedString = try? NSAttributedString(url: fileURL, options: stringOptions, documentAttributes: nil)
+//		
+//		contactTextView.attributedText = attributedString
+		contactTextView.text = "Hi"
     }
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		webView.frame = view.frame
-		webView.scrollView.contentInset.bottom -= 108
-		view.addSubview(webView)
-	}
 
 }

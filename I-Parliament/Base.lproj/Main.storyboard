@@ -201,13 +201,30 @@
                     <view key="view" contentMode="scaleToFill" id="ws4-LM-IiA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Contact Details..." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o94-QG-Kcv">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YON-Cb-CdF" firstAttribute="top" secondItem="o94-QG-Kcv" secondAttribute="bottom" constant="8" id="1hW-3J-Hjg"/>
+                            <constraint firstAttribute="trailing" secondItem="o94-QG-Kcv" secondAttribute="trailing" constant="16" id="7Io-NH-nZg"/>
+                            <constraint firstItem="o94-QG-Kcv" firstAttribute="leading" secondItem="ws4-LM-IiA" secondAttribute="leading" constant="16" id="aQ6-Z4-4sH"/>
+                            <constraint firstItem="o94-QG-Kcv" firstAttribute="top" secondItem="C8L-uK-J7L" secondAttribute="bottom" constant="-52" id="mHq-No-mhd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contact" id="sJ2-10-epf"/>
+                    <connections>
+                        <outlet property="contactTextView" destination="o94-QG-Kcv" id="WhM-K3-Fk4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpl-Wi-Jm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="2334"/>
+            <point key="canvasLocation" x="1816.8" y="2333.8830584707648"/>
         </scene>
     </scenes>
     <resources>

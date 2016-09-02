@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930.4000000000001" y="374.66266866566718"/>
+            <point key="canvasLocation" x="1485" y="375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tqa-oe-6iV">
@@ -49,6 +49,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="okD-mw-sSp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="pWI-js-mxe">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -58,7 +59,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mb6-eJ-5UM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="485" y="375"/>
         </scene>
     </scenes>
 </document>
