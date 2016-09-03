@@ -15,13 +15,17 @@ class ContactViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		navigationController?.tabBarItem.selectedImage = UIImage(named: "Contact Filled")
-		
-		let attributes: [String: UIFont] = [NSFontAttributeName: .systemFont(ofSize: 16)]
-		let attributedText = NSMutableAttributedString(string: contactTextView.text, attributes: attributes)
+		let attributedText: NSMutableAttributedString = contactTextView.attributedText.mutableCopy() as! NSMutableAttributedString
 		attributedText.registerEmails()
 		contactTextView.attributedText = attributedText
+		contactTextView.setContentOffset(CGPoint(x: 0, y: -1000), animated: false)
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		contactTextView.scrollIndicatorInsets.bottom = 0
+		contactTextView.flashScrollIndicators()
+	}
 
 }
 
@@ -34,5 +38,9 @@ extension NSMutableAttributedString {
 			let string = attributedSubstring(from: match.range).string
 			addAttribute(NSLinkAttributeName, value: "mailto:\(string)", range: match.range)
 		}
+	}
+	
+	func add(attribute: String, to substring: String, index: Int = 0) {
+		
 	}
 }

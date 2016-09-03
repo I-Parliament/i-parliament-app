@@ -12,7 +12,6 @@ class BlogViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		navigationController?.tabBarItem.selectedImage = UIImage(named: "Blog Filled")
     }
 	
 }

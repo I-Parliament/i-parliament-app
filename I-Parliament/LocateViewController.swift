@@ -12,7 +12,6 @@ class LocateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		navigationController?.tabBarItem.selectedImage = UIImage(named: "Locate Filled")
     }
 
 }

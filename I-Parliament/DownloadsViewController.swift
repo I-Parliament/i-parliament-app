@@ -12,7 +12,6 @@ class DownloadsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		navigationController?.tabBarItem.selectedImage = UIImage(named: "Downloads Filled")
     }
 
 }

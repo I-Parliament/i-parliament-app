@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HIh-FG-r2E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -50,7 +51,7 @@
         <scene sceneID="I0H-v3-pbq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GwF-UQ-9tw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="Gcc-Gh-Kew"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" selectedImage="Home Filled" id="Gcc-Gh-Kew"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4LQ-kb-YdV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -69,7 +70,7 @@
         <scene sceneID="U94-qH-ULd">
             <objects>
                 <navigationController id="dzx-ba-vEF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Locate" image="Locate" id="Rd6-IS-eH0"/>
+                    <tabBarItem key="tabBarItem" title="Locate" image="Locate" selectedImage="Locate Filled" id="Rd6-IS-eH0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MZ6-fY-zUT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -105,7 +106,7 @@
         <scene sceneID="FH2-DJ-2dx">
             <objects>
                 <navigationController id="Ea0-vQ-eQq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Blog" image="Blog" id="NWd-xc-neW"/>
+                    <tabBarItem key="tabBarItem" title="Blog" image="Blog" selectedImage="Blog Filled" id="NWd-xc-neW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="70O-ea-VcJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -177,7 +178,7 @@
         <scene sceneID="zXh-J6-ANI">
             <objects>
                 <navigationController id="JNG-Ac-Kn5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contact" image="Contact" id="eUZ-1k-Qk0"/>
+                    <tabBarItem key="tabBarItem" title="Contact" image="Contact" selectedImage="Contact Filled" id="eUZ-1k-Qk0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LBP-qc-ik1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -202,30 +203,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o94-QG-Kcv">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o94-QG-Kcv">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Secretariat:
+                                <attributedString key="attributedText">
+                                    <fragment content="Contact Us">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+
+Secretariat:
+
 secretariat@iparliment.in
 
+
 Organising Committee:
+
 oc@iparliment.in
 
+
 Allotments:
+
 allotments@iparliment.in
 
+
 Democracy Club:
+
 democracyclub@iparliment.in</string>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" lookupSuggestion="YES"/>
                             </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-Ct-468">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter" translatesAutoresizingMaskIntoConstraints="NO" id="eFg-02-lKI">
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="eFg-02-lKI" secondAttribute="height" multiplier="1:1" id="hKw-oB-uWm"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instagram" translatesAutoresizingMaskIntoConstraints="NO" id="DVQ-oC-BKR">
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="DVQ-oC-BKR" secondAttribute="height" multiplier="1:1" id="aw9-sq-UNf"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter" translatesAutoresizingMaskIntoConstraints="NO" id="8mg-yd-Vs3">
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="8mg-yd-Vs3" secondAttribute="height" multiplier="1:1" id="rD7-TB-lHQ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instagram" translatesAutoresizingMaskIntoConstraints="NO" id="b9V-GA-Jz5">
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="b9V-GA-Jz5" secondAttribute="height" multiplier="1:1" id="bPC-gx-8pP"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter" translatesAutoresizingMaskIntoConstraints="NO" id="zR1-yf-BGP">
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="zR1-yf-BGP" secondAttribute="height" multiplier="1:1" id="4QV-Bs-VZw"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="IyV-VJ-JsF"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YON-Cb-CdF" firstAttribute="top" secondItem="o94-QG-Kcv" secondAttribute="bottom" constant="8" id="1hW-3J-Hjg"/>
                             <constraint firstAttribute="trailing" secondItem="o94-QG-Kcv" secondAttribute="trailing" constant="16" id="7Io-NH-nZg"/>
+                            <constraint firstItem="YON-Cb-CdF" firstAttribute="top" secondItem="vNz-Ct-468" secondAttribute="bottom" constant="14" id="BjK-QW-KdB"/>
+                            <constraint firstItem="vNz-Ct-468" firstAttribute="leading" secondItem="ws4-LM-IiA" secondAttribute="leading" constant="16" id="EhD-0r-mJd"/>
                             <constraint firstItem="o94-QG-Kcv" firstAttribute="leading" secondItem="ws4-LM-IiA" secondAttribute="leading" constant="16" id="aQ6-Z4-4sH"/>
-                            <constraint firstItem="o94-QG-Kcv" firstAttribute="top" secondItem="C8L-uK-J7L" secondAttribute="bottom" constant="-36" id="oCZ-UV-9Eg"/>
+                            <constraint firstAttribute="trailing" secondItem="vNz-Ct-468" secondAttribute="trailing" constant="16" id="bk6-3D-tq1"/>
+                            <constraint firstItem="o94-QG-Kcv" firstAttribute="top" secondItem="C8L-uK-J7L" secondAttribute="bottom" constant="-44" id="oCZ-UV-9Eg"/>
+                            <constraint firstItem="vNz-Ct-468" firstAttribute="top" secondItem="o94-QG-Kcv" secondAttribute="bottom" constant="16" id="rGW-0Y-xr7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contact" id="sJ2-10-epf"/>
@@ -240,9 +298,15 @@ democracyclub@iparliment.in</string>
     </scenes>
     <resources>
         <image name="Blog" width="25" height="25"/>
+        <image name="Blog Filled" width="25" height="25"/>
         <image name="Contact" width="25" height="25"/>
+        <image name="Contact Filled" width="25" height="25"/>
         <image name="Home" width="25" height="25"/>
+        <image name="Home Filled" width="25" height="25"/>
+        <image name="Instagram" width="44" height="44"/>
         <image name="Locate" width="25" height="25"/>
+        <image name="Locate Filled" width="25" height="25"/>
+        <image name="Twitter" width="44" height="44"/>
     </resources>
     <color key="tintColor" red="1" green="0.57999999999999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
