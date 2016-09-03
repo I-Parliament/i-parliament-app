@@ -17,16 +17,22 @@ class ContactViewController: UIViewController {
         super.viewDidLoad()
 		navigationController?.tabBarItem.selectedImage = UIImage(named: "Contact Filled")
 		
-//		guard let filePath = Bundle.main.path(forResource: "contact", ofType: "html") else {return}
-//		let fileURL = URL(fileURLWithPath: filePath)
-//		let stringOptions: [String: Any] = [
-//			NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-//			NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue
-//		]
-//		let attributedString = try? NSAttributedString(url: fileURL, options: stringOptions, documentAttributes: nil)
-//		
-//		contactTextView.attributedText = attributedString
-		contactTextView.text = "Hi"
+		let attributes: [String: UIFont] = [NSFontAttributeName: .systemFont(ofSize: 16)]
+		let attributedText = NSMutableAttributedString(string: contactTextView.text, attributes: attributes)
+		attributedText.registerEmails()
+		contactTextView.attributedText = attributedText
     }
 
+}
+
+extension NSMutableAttributedString {
+	func registerEmails() {
+		guard let regex = try? NSRegularExpression(pattern: "\\S+@iparliment\\.in", options: []) else {return}
+		let range = NSMakeRange(0, length)
+		let matches = regex.matches(in: mutableString as String, options: [], range: range)
+		matches.forEach {match in
+			let string = attributedSubstring(from: match.range).string
+			addAttribute(NSLinkAttributeName, value: "mailto:\(string)", range: match.range)
+		}
+	}
 }
