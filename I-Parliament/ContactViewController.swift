@@ -13,6 +13,23 @@ class ContactViewController: UIViewController {
 
 	@IBOutlet weak var contactTextView: UITextView!
 	
+	@IBAction func twitterTapped(_ sender: AnyObject) {
+		//TODO: Replace with correct URLs
+		UIApplication.shared.openURL(URL(string: "https://www.facebook.com/I-Parliament-525074704336783/")!)
+	}
+	
+	@IBAction func facebookTapped(_ sender: AnyObject) {
+		UIApplication.shared.openURL(URL(string: "https://www.facebook.com/I-Parliament-525074704336783/")!)
+	}
+	
+	@IBAction func linkedinTapped(_ sender: AnyObject) {
+		UIApplication.shared.openURL(URL(string: "https://www.facebook.com/I-Parliament-525074704336783/")!)
+	}
+	
+	@IBAction func instagramTapped(_ sender: AnyObject) {
+		UIApplication.shared.openURL(URL(string: "https://www.facebook.com/I-Parliament-525074704336783/")!)
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		let attributedText: NSMutableAttributedString = contactTextView.attributedText.mutableCopy() as! NSMutableAttributedString
@@ -31,7 +48,7 @@ class ContactViewController: UIViewController {
 
 extension NSMutableAttributedString {
 	func registerEmails() {
-		guard let regex = try? NSRegularExpression(pattern: "\\S+@iparliment\\.in", options: []) else {return}
+		guard let regex = try? NSRegularExpression(pattern: "\\S+@iparliament\\.in", options: []) else {return}
 		let range = NSMakeRange(0, length)
 		let matches = regex.matches(in: mutableString as String, options: [], range: range)
 		matches.forEach {match in
@@ -40,7 +57,7 @@ extension NSMutableAttributedString {
 		}
 	}
 	
-	func add(attribute: String, to substring: String, index: Int = 0) {
-		
+	func add(attribute: String, to substring: String, at index: Int = 0) {
+		//TODO: Method stub
 	}
 }

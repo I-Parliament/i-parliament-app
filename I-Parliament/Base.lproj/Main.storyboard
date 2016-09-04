@@ -217,22 +217,22 @@
 
 Secretariat:
 
-secretariat@iparliment.in
+secretariat@iparliament.in
 
 
 Organising Committee:
 
-oc@iparliment.in
+oc@iparliament.in
 
 
 Allotments:
 
-allotments@iparliment.in
+allotments@iparliament.in
 
 
 Democracy Club:
 
-democracyclub@iparliment.in</string>
+democracyclub@iparliament.in</string>
                                         <attributes>
                                             <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -244,34 +244,45 @@ democracyclub@iparliment.in</string>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-Ct-468">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter" translatesAutoresizingMaskIntoConstraints="NO" id="eFg-02-lKI">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMM-wj-ZGd">
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="eFg-02-lKI" secondAttribute="height" multiplier="1:1" id="hKw-oB-uWm"/>
+                                            <constraint firstAttribute="width" secondItem="RMM-wj-ZGd" secondAttribute="height" multiplier="1:1" id="l7T-Z7-684"/>
                                         </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instagram" translatesAutoresizingMaskIntoConstraints="NO" id="DVQ-oC-BKR">
+                                        <state key="normal" image="Twitter"/>
+                                        <connections>
+                                            <action selector="twitterTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="ZEm-tG-xpb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSk-8M-Mqu">
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="DVQ-oC-BKR" secondAttribute="height" multiplier="1:1" id="aw9-sq-UNf"/>
+                                            <constraint firstAttribute="width" secondItem="xSk-8M-Mqu" secondAttribute="height" multiplier="1:1" id="y8K-hd-1j4"/>
                                         </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter" translatesAutoresizingMaskIntoConstraints="NO" id="8mg-yd-Vs3">
+                                        <state key="normal" image="Facebook"/>
+                                        <connections>
+                                            <action selector="facebookTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="2CI-qj-EGh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5en-aD-bxL">
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="8mg-yd-Vs3" secondAttribute="height" multiplier="1:1" id="rD7-TB-lHQ"/>
+                                            <constraint firstAttribute="width" secondItem="5en-aD-bxL" secondAttribute="height" multiplier="1:1" id="F7V-2p-2HE"/>
                                         </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instagram" translatesAutoresizingMaskIntoConstraints="NO" id="b9V-GA-Jz5">
+                                        <state key="normal" image="LinkedIn"/>
+                                        <connections>
+                                            <action selector="linkedinTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="z48-C3-TBa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjp-9u-wgn">
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="b9V-GA-Jz5" secondAttribute="height" multiplier="1:1" id="bPC-gx-8pP"/>
+                                            <constraint firstAttribute="width" secondItem="Zjp-9u-wgn" secondAttribute="height" multiplier="1:1" id="dI3-El-pRt"/>
                                         </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter" translatesAutoresizingMaskIntoConstraints="NO" id="zR1-yf-BGP">
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="zR1-yf-BGP" secondAttribute="height" multiplier="1:1" id="4QV-Bs-VZw"/>
-                                        </constraints>
-                                    </imageView>
+                                        <state key="normal" image="Instagram"/>
+                                        <connections>
+                                            <action selector="instagramTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="03w-jf-Kfs"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="IyV-VJ-JsF"/>
+                                    <constraint firstAttribute="height" constant="33" id="IyV-VJ-JsF"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -301,9 +312,11 @@ democracyclub@iparliment.in</string>
         <image name="Blog Filled" width="25" height="25"/>
         <image name="Contact" width="25" height="25"/>
         <image name="Contact Filled" width="25" height="25"/>
+        <image name="Facebook" width="44" height="44"/>
         <image name="Home" width="25" height="25"/>
         <image name="Home Filled" width="25" height="25"/>
         <image name="Instagram" width="44" height="44"/>
+        <image name="LinkedIn" width="44" height="44"/>
         <image name="Locate" width="25" height="25"/>
         <image name="Locate Filled" width="25" height="25"/>
         <image name="Twitter" width="44" height="44"/>
