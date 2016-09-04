@@ -191,7 +191,7 @@
             </objects>
             <point key="canvasLocation" x="966" y="2334"/>
         </scene>
-        <!--Contact-->
+        <!--Contact Us-->
         <scene sceneID="ER5-lU-jlh">
             <objects>
                 <viewController id="rue-SB-L2P" customClass="ContactViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
@@ -205,6 +205,37 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wOF-9A-Ouq">
                                 <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o94-QG-Kcv">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">Secretariat:
+
+secretariat@iparliament.in
+
+
+Organising Committee:
+
+oc@iparliament.in
+
+
+Allotments:
+
+allotments@iparliament.in
+
+
+Democracy Club:
+
+democracyclub@iparliament.in</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" lookupSuggestion="YES"/>
+                                    </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-Ct-468">
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMM-wj-ZGd" userLabel="Twitter">
@@ -248,37 +279,6 @@
                                             <constraint firstAttribute="height" constant="33" id="IyV-VJ-JsF"/>
                                         </constraints>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o94-QG-Kcv">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <attributedString key="attributedText">
-                                            <fragment>
-                                                <string key="content">Secretariat:
-
-secretariat@iparliament.in
-
-
-Organising Committee:
-
-oc@iparliament.in
-
-
-Allotments:
-
-allotments@iparliament.in
-
-
-Democracy Club:
-
-democracyclub@iparliament.in</string>
-                                                <attributes>
-                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" lookupSuggestion="YES"/>
-                                    </textView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -290,7 +290,7 @@ democracyclub@iparliament.in</string>
                             <constraint firstItem="YON-Cb-CdF" firstAttribute="top" secondItem="wOF-9A-Ouq" secondAttribute="bottom" constant="16" id="lvN-uy-yu4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Contact" id="sJ2-10-epf"/>
+                    <navigationItem key="navigationItem" title="Contact Us" id="sJ2-10-epf"/>
                     <connections>
                         <outlet property="contactTextView" destination="o94-QG-Kcv" id="WhM-K3-Fk4"/>
                     </connections>
