@@ -194,7 +194,7 @@
         <!--Contact Us-->
         <scene sceneID="ER5-lU-jlh">
             <objects>
-                <viewController id="rue-SB-L2P" customClass="ContactViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="rue-SB-L2P" customClass="ContactViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C8L-uK-J7L"/>
                         <viewControllerLayoutGuide type="bottom" id="YON-Cb-CdF"/>

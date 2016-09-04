@@ -35,15 +35,11 @@ class ContactViewController: UIViewController {
 		let attributedText: NSMutableAttributedString = contactTextView.attributedText.mutableCopy() as! NSMutableAttributedString
 		attributedText.registerEmails()
 		contactTextView.attributedText = attributedText
-		contactTextView.setContentOffset(CGPoint(x: 0, y: -1000), animated: false)
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		contactTextView.scrollIndicatorInsets.bottom = 0
-		contactTextView.scrollIndicatorInsets.top = 0
-		contactTextView.contentInset.top = 0
-		contactTextView.contentInset.bottom = 8
+		contactTextView.contentOffset = .zero
 		contactTextView.flashScrollIndicators()
 	}
 
