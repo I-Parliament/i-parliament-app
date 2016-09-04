@@ -41,6 +41,9 @@ class ContactViewController: UIViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		contactTextView.scrollIndicatorInsets.bottom = 0
+		contactTextView.scrollIndicatorInsets.top = 0
+		contactTextView.contentInset.top = 0
+		contactTextView.contentInset.bottom = 8
 		contactTextView.flashScrollIndicators()
 	}
 

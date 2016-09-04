@@ -203,19 +203,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o94-QG-Kcv">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Contact Us">
-                                        <attributes>
-                                            <font key="NSFont" size="24" name=".AppleSystemUIFont"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-
-Secretariat:
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wOF-9A-Ouq">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-Ct-468">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMM-wj-ZGd" userLabel="Twitter">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="RMM-wj-ZGd" secondAttribute="height" multiplier="1:1" id="l7T-Z7-684"/>
+                                                </constraints>
+                                                <state key="normal" title="Twitter" image="Twitter"/>
+                                                <connections>
+                                                    <action selector="twitterTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="ZEm-tG-xpb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSk-8M-Mqu">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="xSk-8M-Mqu" secondAttribute="height" multiplier="1:1" id="y8K-hd-1j4"/>
+                                                </constraints>
+                                                <state key="normal" title="Facebook" image="Facebook"/>
+                                                <connections>
+                                                    <action selector="facebookTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="2CI-qj-EGh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5en-aD-bxL">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="5en-aD-bxL" secondAttribute="height" multiplier="1:1" id="F7V-2p-2HE"/>
+                                                </constraints>
+                                                <state key="normal" title="Linkedin" image="LinkedIn"/>
+                                                <connections>
+                                                    <action selector="linkedinTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="z48-C3-TBa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjp-9u-wgn">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Zjp-9u-wgn" secondAttribute="height" multiplier="1:1" id="dI3-El-pRt"/>
+                                                </constraints>
+                                                <state key="normal" title="Instagram" image="Instagram"/>
+                                                <connections>
+                                                    <action selector="instagramTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="03w-jf-Kfs"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="IyV-VJ-JsF"/>
+                                        </constraints>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o94-QG-Kcv">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">Secretariat:
 
 secretariat@iparliament.in
 
@@ -233,68 +270,24 @@ allotments@iparliament.in
 Democracy Club:
 
 democracyclub@iparliament.in</string>
-                                        <attributes>
-                                            <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" lookupSuggestion="YES"/>
-                            </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-Ct-468">
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMM-wj-ZGd">
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="RMM-wj-ZGd" secondAttribute="height" multiplier="1:1" id="l7T-Z7-684"/>
-                                        </constraints>
-                                        <state key="normal" image="Twitter"/>
-                                        <connections>
-                                            <action selector="twitterTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="ZEm-tG-xpb"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSk-8M-Mqu">
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="xSk-8M-Mqu" secondAttribute="height" multiplier="1:1" id="y8K-hd-1j4"/>
-                                        </constraints>
-                                        <state key="normal" image="Facebook"/>
-                                        <connections>
-                                            <action selector="facebookTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="2CI-qj-EGh"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5en-aD-bxL">
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="5en-aD-bxL" secondAttribute="height" multiplier="1:1" id="F7V-2p-2HE"/>
-                                        </constraints>
-                                        <state key="normal" image="LinkedIn"/>
-                                        <connections>
-                                            <action selector="linkedinTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="z48-C3-TBa"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjp-9u-wgn">
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Zjp-9u-wgn" secondAttribute="height" multiplier="1:1" id="dI3-El-pRt"/>
-                                        </constraints>
-                                        <state key="normal" image="Instagram"/>
-                                        <connections>
-                                            <action selector="instagramTapped:" destination="rue-SB-L2P" eventType="touchUpInside" id="03w-jf-Kfs"/>
-                                        </connections>
-                                    </button>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" lookupSuggestion="YES"/>
+                                    </textView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="IyV-VJ-JsF"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="o94-QG-Kcv" secondAttribute="trailing" constant="16" id="7Io-NH-nZg"/>
-                            <constraint firstItem="YON-Cb-CdF" firstAttribute="top" secondItem="vNz-Ct-468" secondAttribute="bottom" constant="14" id="BjK-QW-KdB"/>
-                            <constraint firstItem="vNz-Ct-468" firstAttribute="leading" secondItem="ws4-LM-IiA" secondAttribute="leading" constant="16" id="EhD-0r-mJd"/>
-                            <constraint firstItem="o94-QG-Kcv" firstAttribute="leading" secondItem="ws4-LM-IiA" secondAttribute="leading" constant="16" id="aQ6-Z4-4sH"/>
-                            <constraint firstAttribute="trailing" secondItem="vNz-Ct-468" secondAttribute="trailing" constant="16" id="bk6-3D-tq1"/>
-                            <constraint firstItem="o94-QG-Kcv" firstAttribute="top" secondItem="C8L-uK-J7L" secondAttribute="bottom" constant="-44" id="oCZ-UV-9Eg"/>
-                            <constraint firstItem="vNz-Ct-468" firstAttribute="top" secondItem="o94-QG-Kcv" secondAttribute="bottom" constant="16" id="rGW-0Y-xr7"/>
+                            <constraint firstAttribute="trailing" secondItem="wOF-9A-Ouq" secondAttribute="trailing" constant="16" id="OQE-5B-7YB"/>
+                            <constraint firstItem="wOF-9A-Ouq" firstAttribute="leading" secondItem="ws4-LM-IiA" secondAttribute="leading" constant="16" id="eHJ-d4-cko"/>
+                            <constraint firstItem="wOF-9A-Ouq" firstAttribute="top" secondItem="C8L-uK-J7L" secondAttribute="bottom" constant="16" id="h9E-ep-NCm"/>
+                            <constraint firstItem="YON-Cb-CdF" firstAttribute="top" secondItem="wOF-9A-Ouq" secondAttribute="bottom" constant="16" id="lvN-uy-yu4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contact" id="sJ2-10-epf"/>
