@@ -66,11 +66,11 @@
             </objects>
             <point key="canvasLocation" x="966" y="-546"/>
         </scene>
-        <!--Locate-->
+        <!--Location-->
         <scene sceneID="U94-qH-ULd">
             <objects>
                 <navigationController id="dzx-ba-vEF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Locate" image="Locate" selectedImage="Locate Filled" id="Rd6-IS-eH0"/>
+                    <tabBarItem key="tabBarItem" title="Location" image="Locate" selectedImage="Locate Filled" id="Rd6-IS-eH0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MZ6-fY-zUT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -83,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="966" y="144"/>
         </scene>
-        <!--Locate-->
+        <!--Location-->
         <scene sceneID="xE1-Gn-BVr">
             <objects>
                 <viewController id="ech-YT-izi" customClass="LocateViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,11 +96,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Locate" id="sX9-2Z-vx5"/>
+                    <navigationItem key="navigationItem" title="Location" id="sX9-2Z-vx5">
+                        <barButtonItem key="rightBarButtonItem" title="Directions" id="Zaz-22-pqy">
+                            <connections>
+                                <action selector="directionsTapped:" destination="ech-YT-izi" id="3zj-z3-P15"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fw-P7-XDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="144"/>
+            <point key="canvasLocation" x="1816.8" y="143.47826086956522"/>
         </scene>
         <!--Blog-->
         <scene sceneID="FH2-DJ-2dx">
@@ -229,7 +235,7 @@ democracyclub@iparliament.in</string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                     </textView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-Ct-468">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-Ct-468">
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMM-wj-ZGd" userLabel="Twitter">
                                                 <accessibility key="accessibilityConfiguration" label="Twitter"/>
@@ -291,7 +297,9 @@ democracyclub@iparliament.in</string>
                             <constraint firstItem="YON-Cb-CdF" firstAttribute="top" secondItem="wOF-9A-Ouq" secondAttribute="bottom" constant="16" id="lvN-uy-yu4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Contact Us" id="sJ2-10-epf"/>
+                    <navigationItem key="navigationItem" title="Contact Us" id="sJ2-10-epf">
+                        <barButtonItem key="rightBarButtonItem" title="Directions" id="XMJ-1X-4Pq"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="contactTextView" destination="o94-QG-Kcv" id="WhM-K3-Fk4"/>
                     </connections>
