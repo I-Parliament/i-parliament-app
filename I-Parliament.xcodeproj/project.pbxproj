@@ -88,10 +88,8 @@
 		560EC0D91D787D1900D8C71D /* I-Parliament */ = {
 			isa = PBXGroup;
 			children = (
-				568482691D7956DD00834DB8 /* Assets */,
 				568482661D79554100834DB8 /* Views & Layout */,
 				568482671D79555A00834DB8 /* Controllers */,
-				568482681D79556900834DB8 /* Other */,
 			);
 			path = "I-Parliament";
 			sourceTree = "<group>";
@@ -114,23 +112,17 @@
 				560EC0EE1D78867B00D8C71D /* BlogViewController.swift */,
 				560EC0F01D78874800D8C71D /* DownloadsViewController.swift */,
 				560EC0F21D78881000D8C71D /* ContactViewController.swift */,
+				568482691D7956DD00834DB8 /* Assets */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		568482681D79556900834DB8 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				56C608F31D7F102B00E7D7F4 /* .gitignore */,
-				560EC0E61D787D1900D8C71D /* Info.plist */,
-			);
-			name = Other;
 			sourceTree = "<group>";
 		};
 		568482691D7956DD00834DB8 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				560EC0E11D787D1900D8C71D /* Assets.xcassets */,
+				560EC0E61D787D1900D8C71D /* Info.plist */,
+				56C608F31D7F102B00E7D7F4 /* .gitignore */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -309,6 +301,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -359,6 +352,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
