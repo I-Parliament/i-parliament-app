@@ -37,7 +37,7 @@
                         <viewControllerLayoutGuide type="bottom" id="mzR-Ht-wyZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cWs-i3-zIy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -92,7 +92,7 @@
                         <viewControllerLayoutGuide type="bottom" id="D23-nQ-biW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="19J-Wo-lz0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -134,7 +134,7 @@
                         <viewControllerLayoutGuide type="bottom" id="kv4-TJ-6j9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="g4o-jr-ku1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -170,7 +170,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Hto-65-3OM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9w8-hh-m0n">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -206,7 +206,7 @@
                         <viewControllerLayoutGuide type="bottom" id="YON-Cb-CdF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ws4-LM-IiA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wOF-9A-Ouq">
@@ -297,9 +297,7 @@ democracyclub@iparliament.in</string>
                             <constraint firstItem="YON-Cb-CdF" firstAttribute="top" secondItem="wOF-9A-Ouq" secondAttribute="bottom" constant="16" id="lvN-uy-yu4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Contact Us" id="sJ2-10-epf">
-                        <barButtonItem key="rightBarButtonItem" title="Directions" id="XMJ-1X-4Pq"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Contact Us" id="sJ2-10-epf"/>
                     <connections>
                         <outlet property="contactTextView" destination="o94-QG-Kcv" id="WhM-K3-Fk4"/>
                     </connections>

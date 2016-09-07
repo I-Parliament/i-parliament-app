@@ -18,14 +18,9 @@ class ContactViewController: UIViewController {
 		UIApplication.shared.openURL(url)
 	}
 	
-	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		contactTextView.contentOffset = .zero
+		contactTextView.contentOffset = .zero //Fixes a bug that offsets the UITextView
 		contactTextView.flashScrollIndicators()
 	}
 

@@ -11,7 +11,7 @@ import GoogleMaps
 
 class LocateViewController: UIViewController {
 	
-	@IBOutlet weak var mapContainerView: UIView!
+	var mapView: GMSMapView!
 	
 	@IBAction func directionsTapped(_ sender: AnyObject) {
 		if let url = URL(string: "comgooglemaps://?daddr=Jawahar+Bhawan,+Raisina+Road,+Windsor+Place,+New+Delhi,+Delhi+110001"), UIApplication.shared.canOpenURL(url) {
@@ -23,20 +23,22 @@ class LocateViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		let position = CLLocationCoordinate2D(latitude: 28.6177578, longitude: 77.21500130000004)
-		
-		let camera = GMSCameraPosition.camera(withTarget: position, zoom: 17.5)
-		
-		let mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
+		let position = CLLocationCoordinate2D(latitude: 28.6177578, longitude: 77.2150013) //77.21500130000004
+		let camera = GMSCameraPosition.camera(withTarget: position, zoom: 17)
+		mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
+		view.addSubview(mapView)
 		
 		let marker = GMSMarker(position: position)
 		marker.title = "Jawahar Bhawan"
-		marker.snippet = "Raisina Road, Windsor Place, New Delhi, Delhi 110001"
+		marker.snippet = "Raisina Road, Windsor Place,\nNew Delhi 110001"
+		marker.appearAnimation = kGMSMarkerAnimationPop
 		marker.map = mapView
-		
 		mapView.selectedMarker = marker
-		
-		view.addSubview(mapView)
+	}
+	
+	override func viewDidLayoutSubviews() {
+		mapView.frame = view.frame
+		mapView.padding.top = topLayoutGuide.length
+		mapView.padding.bottom = bottomLayoutGuide.length
 	}
 }
