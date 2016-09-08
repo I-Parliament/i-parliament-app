@@ -53,7 +53,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GwF-UQ-9tw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="Home" selectedImage="Home Filled" id="Gcc-Gh-Kew"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4LQ-kb-YdV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4LQ-kb-YdV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -71,7 +71,7 @@
             <objects>
                 <navigationController id="dzx-ba-vEF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Location" image="Locate" selectedImage="Locate Filled" id="Rd6-IS-eH0"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MZ6-fY-zUT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MZ6-fY-zUT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -113,7 +113,7 @@
             <objects>
                 <navigationController id="Ea0-vQ-eQq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Blog" image="Blog" selectedImage="Blog Filled" id="NWd-xc-neW"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="70O-ea-VcJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="70O-ea-VcJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -149,43 +149,134 @@
             <objects>
                 <navigationController id="wK2-2X-sa4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="downloads" id="Z4b-tw-nkC"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="al8-Px-CBq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="al8-Px-CBq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="nnC-mQ-Shz" kind="relationship" relationship="rootViewController" id="LJe-Jf-wUw"/>
+                        <segue destination="fl2-jd-ElQ" kind="relationship" relationship="rootViewController" id="GDV-j5-VKN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxk-Lg-dls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="966" y="1592"/>
         </scene>
-        <!--Downloads-->
-        <scene sceneID="coL-J0-Ovs">
+        <!--Downloads Table View Controller-->
+        <scene sceneID="5U0-cd-QNT">
             <objects>
-                <viewController id="nnC-mQ-Shz" customClass="DownloadsViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="fl2-jd-ElQ" customClass="DownloadsTableViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="e1M-6p-YBY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="availableGroupCell" textLabel="Bzo-1i-nY8" style="IBUITableViewCellStyleDefault" id="r8C-24-uqi" customClass="AvailableGroupTableViewCell" customModule="I_Parliament" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r8C-24-uqi" id="YDh-1Q-uRX">
+                                    <frame key="frameInset" width="414" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Available Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bzo-1i-nY8">
+                                            <frame key="frameInset" minX="15" width="384" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="availableCell" textLabel="KvA-uL-NqH" style="IBUITableViewCellStyleDefault" id="rhz-ql-xr3" customClass="AvailableItemTableViewCell" customModule="I_Parliament" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rhz-ql-xr3" id="cE5-gh-XOJ">
+                                    <frame key="frameInset" width="414" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Available Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KvA-uL-NqH">
+                                            <frame key="frameInset" minX="15" width="384" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="downloadedCell" textLabel="SRm-zp-KHK" style="IBUITableViewCellStyleDefault" id="QlR-g1-3yf">
+                                <rect key="frame" x="0.0" y="180" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QlR-g1-3yf" id="UjD-Pv-Zab">
+                                    <frame key="frameInset" width="381" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Downloaded Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SRm-zp-KHK">
+                                            <frame key="frameInset" minX="15" width="364" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Z3P-Qo-qVY" kind="show" id="9QB-6R-JIz"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fl2-jd-ElQ" id="t9x-hu-fjk"/>
+                            <outlet property="delegate" destination="fl2-jd-ElQ" id="RpJ-FZ-GKj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="HHe-bY-b3T">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="oyi-8i-3V8">
+                            <rect key="frame" x="117" y="7" width="181" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Available"/>
+                                <segment title="Downloaded"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentChanged:" destination="fl2-jd-ElQ" eventType="valueChanged" id="nzx-dH-8u9"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="oyi-8i-3V8" id="05d-4e-Xf0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hv8-h7-Y8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1815.9420289855075" y="1590.4891304347827"/>
+        </scene>
+        <!--View File-->
+        <scene sceneID="UYs-gc-fqU">
+            <objects>
+                <viewController id="Z3P-Qo-qVY" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="D2P-h1-Uiz"/>
-                        <viewControllerLayoutGuide type="bottom" id="Hto-65-3OM"/>
+                        <viewControllerLayoutGuide type="top" id="adI-et-NcU"/>
+                        <viewControllerLayoutGuide type="bottom" id="hmM-Xc-jvn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9w8-hh-m0n">
+                    <view key="view" contentMode="scaleToFill" id="9Wq-Cw-t3x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Downloads" id="aOi-jy-RmY"/>
+                    <navigationItem key="navigationItem" title="View File" id="0SA-pN-0rc"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YnT-ku-4gM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PLd-bQ-2y5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="1593"/>
+            <point key="canvasLocation" x="2636" y="1590"/>
         </scene>
         <!--Contact-->
         <scene sceneID="zXh-J6-ANI">
             <objects>
                 <navigationController id="JNG-Ac-Kn5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Contact" image="Contact" selectedImage="Contact Filled" id="eUZ-1k-Qk0"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LBP-qc-ik1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="LBP-qc-ik1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
