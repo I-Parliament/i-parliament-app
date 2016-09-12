@@ -9,5 +9,7 @@
 import Foundation
 
 struct DownloadedItem {
+	var id: Int
 	var title: String
+	var url: URL
 }

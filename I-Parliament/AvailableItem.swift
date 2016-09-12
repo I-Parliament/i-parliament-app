@@ -9,9 +9,17 @@
 import Foundation
 
 class AvailableItem {
+	var id: Int
 	var title: String
+	var url: URL
 	
-	init(title: String) {
+	var fileName: String {
+		return "\(title)_\(id).pdf"
+	}
+	
+	init(id: Int, title: String, url: URL) {
+		self.id = id
 		self.title = title
+		self.url = url
 	}
 }

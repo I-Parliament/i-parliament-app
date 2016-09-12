@@ -10,8 +10,12 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+	@IBOutlet weak var textView: UITextView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		textView.contentOffset = CGPoint(x: 0, y: -1000)
+		textView.flashScrollIndicators()
 	}
 
 }
