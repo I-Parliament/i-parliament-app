@@ -23,7 +23,17 @@ class PostViewController: UIViewController {
 	let webView = WKWebView()
 	
 	@IBAction func shareTapped(_ sender: AnyObject) {
-		let activityController = UIActivityViewController(activityItems: [], applicationActivities: nil)
+		var activityItems = [Any]()
+		switch postType {
+		case .local(let url):
+			activityItems = [url]
+		case .remote(let url):
+			activityItems = [url] //TODO: Use PDF instead of the URL
+		default:
+			break
+		}
+		let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+		present(activityController, animated: true, completion: nil)
 	}
 	
     override func viewDidLoad() {
