@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Riv-6Z-wxL">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Credits-->
+        <scene sceneID="pLM-m9-Sry">
+            <objects>
+                <tableViewController id="zaa-0K-Gmo" customClass="CreditsTableViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="XPx-p9-KgQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="licenseCell" textLabel="HqO-2t-EgQ" style="IBUITableViewCellStyleDefault" id="8qC-vi-yA3">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8qC-vi-yA3" id="3yo-cP-hD7">
+                                    <frame key="frameInset" width="342" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HqO-2t-EgQ">
+                                            <frame key="frameInset" minX="15" width="325" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="zaa-0K-Gmo" id="iUV-pZ-rZi"/>
+                            <outlet property="delegate" destination="zaa-0K-Gmo" id="acj-3G-5ql"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Credits" id="XPm-we-ygs">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="XCi-Fr-oYA">
+                            <connections>
+                                <action selector="doneTapped:" destination="zaa-0K-Gmo" id="Z3b-Xq-vmb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="DBi-xq-77t" kind="show" identifier="licenseSegue" id="NKZ-6B-XEt"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9b-hC-aLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3039" y="2209"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8Pz-DS-zRl">
+            <objects>
+                <navigationController id="Riv-6Z-wxL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ojn-Ba-j2P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zaa-0K-Gmo" kind="relationship" relationship="rootViewController" id="8rR-p8-a2y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L4F-47-uoN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2171" y="2210"/>
+        </scene>
+        <!--License Name-->
+        <scene sceneID="S9p-Sz-iaB">
+            <objects>
+                <viewController id="DBi-xq-77t" customClass="LicenseViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O13-qN-agl"/>
+                        <viewControllerLayoutGuide type="bottom" id="nrG-Cb-b1F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3MM-nm-P4m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r2U-DN-1Kc">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r2U-DN-1Kc" firstAttribute="leading" secondItem="3MM-nm-P4m" secondAttribute="leading" id="Kyy-Uo-vdJ"/>
+                            <constraint firstItem="r2U-DN-1Kc" firstAttribute="top" secondItem="3MM-nm-P4m" secondAttribute="top" id="Qbg-Ow-HpI"/>
+                            <constraint firstItem="nrG-Cb-b1F" firstAttribute="top" secondItem="r2U-DN-1Kc" secondAttribute="bottom" id="rnt-bR-Jc5"/>
+                            <constraint firstAttribute="trailing" secondItem="r2U-DN-1Kc" secondAttribute="trailing" id="yUa-vS-f2j"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="License Name" id="o3S-C9-kIn"/>
+                    <connections>
+                        <outlet property="licenseTextView" destination="r2U-DN-1Kc" id="rbq-Ap-54I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="imY-CC-zuf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3868" y="2209.745127436282"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="1" green="0.58039215686274503" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

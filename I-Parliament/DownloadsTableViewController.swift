@@ -8,20 +8,20 @@
 
 import UIKit
 
-class DownloadsTableViewController: UITableViewController {
+class DownloadsTableViewController: UITableViewController, ChildViewController {
 	
-	@IBOutlet weak var segmentedControl: UISegmentedControl!
+	var segmentedControl: UISegmentedControl!
 	
 	var availableGroups = [AvailableGroup]()
 	var dataTask: URLSessionDataTask?
 	
 	var availableSelected: Bool {
-		return segmentedControl.selectedSegmentIndex == 0
+		return segmentedControl?.selectedSegmentIndex == 0
 	}
 	
 	var downloadedItems = [DownloadedItem]()
 	
-	@IBAction func segmentChanged(_ sender: AnyObject) {
+	func segmentChanged(_ sender: AnyObject) {
 		isEditing = false
 		navigationItem.setLeftBarButton(availableSelected ? nil : editButtonItem, animated: true)
 		
@@ -35,6 +35,13 @@ class DownloadsTableViewController: UITableViewController {
 			sectionFunction(indexSet, .left)
 		}
 		tableView.endUpdates()
+		
+		if availableSelected {
+			setupRefreshControl()
+		} else {
+			refreshControl?.endRefreshing()
+			refreshControl = nil
+		}
 	}
 	
 	override func viewDidLoad() {
@@ -42,7 +49,7 @@ class DownloadsTableViewController: UITableViewController {
 		refreshData()
 	}
 	
-	//MARK:- Helper Functions
+	//MARK: - Helper Functions
 	
 	private func setupRefreshControl() {
 		refreshControl = UIRefreshControl()
@@ -124,7 +131,7 @@ class DownloadsTableViewController: UITableViewController {
 		}
 	}
 	
-	//MARK:- Table view data source
+	//MARK: - Table view data source
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		//Always at least one section to make transitioning easier as handling a 0 case in segmentChanged(_:) would be harder
@@ -190,7 +197,7 @@ class DownloadsTableViewController: UITableViewController {
 		tableView.deleteRows(at: [indexPath], with: .automatic)
 	}
 	
-	//MARK:- Navigation
+	//MARK: - Navigation
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		guard let postController = segue.destination as? PostViewController,
@@ -200,13 +207,13 @@ class DownloadsTableViewController: UITableViewController {
 		if availableSelected {
 			let group = availableGroups[selected.section]
 			let item = group.items[selected.row - 1]
-			postController.postType = .remote(url: item.url)
+			postController.postType = .remote(item.url)
 			postController.title = item.title
 			return
 		}
 		
 		let item = downloadedItems[selected.row]
-		postController.postType = .local(url: item.url)
+		postController.postType = .local(item.url)
 		postController.title = item.title
 	}
 }
@@ -261,14 +268,37 @@ extension DownloadsTableViewController: AvailableItemDownloadDelegate {
 	}
 }
 
+extension NSMutableAttributedString {
+	func setBaseFont(baseFont: UIFont, preserveFontSizes: Bool = false) {
+		let baseDescriptor = baseFont.fontDescriptor
+		beginEditing()
+		enumerateAttribute(NSFontAttributeName, in: NSMakeRange(0, length), options: []) { object, range, stop in
+			if let font = object as? UIFont {
+				// Instantiate a font with our base font's family, but with the current range's traits
+				let traits = font.fontDescriptor.symbolicTraits
+				guard let descriptor = baseDescriptor.withSymbolicTraits(traits) else {return}
+				let newFont = UIFont(descriptor: descriptor, size: preserveFontSizes ? descriptor.pointSize : baseDescriptor.pointSize)
+				self.removeAttribute(NSFontAttributeName, range: range)
+				self.addAttribute(NSFontAttributeName, value: newFont, range: range)
+			}
+		}
+		endEditing()
+	}
+}
+
 extension String {
-	var htmlDecoded: String {
-		guard let encodedData = data(using: .utf8) else {return self}
+	
+	var htmlAttributed: NSAttributedString? {
+		guard let encodedData = data(using: .utf8) else {return nil}
 		let attributeOptions: [String: Any] = [
 			NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
 			NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue
 		]
-		let attributedString = try? NSAttributedString(data: encodedData, options: attributeOptions, documentAttributes: nil)
-		return attributedString?.string ?? self
+		return try? NSAttributedString(data: encodedData, options: attributeOptions, documentAttributes: nil)
 	}
+	
+	var htmlDecoded: String {
+		return htmlAttributed?.string ?? self
+	}
+	
 }

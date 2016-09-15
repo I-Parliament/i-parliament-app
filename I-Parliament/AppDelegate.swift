@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			let dict = NSDictionary(contentsOfFile: path),
 			let key = dict["googlemaps"] as? String {
 			GMSServices.provideAPIKey(key)
-			print(GMSServices.openSourceLicenseInfo())
 		}
 		return true
 	}

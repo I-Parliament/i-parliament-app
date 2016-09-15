@@ -15,6 +15,12 @@ class AvailableGroupTableViewCell: UITableViewCell {
 	var availableGroup: AvailableGroup! {
 		didSet {
 			textLabel?.text = availableGroup.title
+			let items = availableGroup.items.count
+			var detailString = "\(items) item"
+			if items > 1 {
+				detailString += "s"
+			}
+			detailTextLabel?.text = detailString
 		}
 	}
 	

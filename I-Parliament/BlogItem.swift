@@ -14,13 +14,15 @@ class BlogItem: Equatable { //Pass by reference
 	var url: URL
 	var date: Date?
 	var mediaID: Int?
+	var excerpt: String?
 	
-	init(title: String, content: String, url: URL, date: Date?, mediaID: Int?) {
+	init(title: String, content: String, url: URL, date: Date?, mediaID: Int?, excerpt: String?) {
 		self.title = title
 		self.content = content
 		self.date = date
 		self.mediaID = mediaID
 		self.url = url
+		self.excerpt = excerpt
 	}
 }
 

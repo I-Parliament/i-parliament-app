@@ -11,9 +11,9 @@ import WebKit
 
 enum PostType {
 	case none
-	case remote(url: URL)
-	case local(url: URL)
-	case html(string: String)
+	case remote(URL)
+	case local(URL)
+	case html(String)
 }
 
 class PostViewController: UIViewController {
@@ -65,6 +65,8 @@ class PostViewController: UIViewController {
     }
 
 	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		
 		webView.frame = view.frame
 		webView.frame.origin.y = topLayoutGuide.length
 		webView.frame.size.height -= (topLayoutGuide.length + bottomLayoutGuide.length)

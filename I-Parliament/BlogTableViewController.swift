@@ -12,13 +12,26 @@ typealias JSON = [String: Any]
 
 let apiEndpoint = "http://blog.iparliament.in/wp-json/wp/v2/"
 
-class BlogTableViewController: UITableViewController {
+class BlogTableViewController: UITableViewController, ChildViewController {
+	
+	var segmentedControl: UISegmentedControl!
 	
 	var items = [BlogItem]()
+	let images = NSCache<NSNumber, UIImage>() //More optimised than a Dictionary
+	
+	var nextPage: Int {
+		let tenths = Double(items.count) / 10
+		let nearestTen = 10 * Int(floor(tenths))
+		return nearestTen + 1 //As we need the *next* page
+	}
 	
 	var dataTask: URLSessionDataTask?
 	var dateFormatter = DateFormatter()
 	let readableFormatter = DateFormatter()
+	
+	func segmentChanged(_ sender: AnyObject) {
+		
+	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +47,15 @@ class BlogTableViewController: UITableViewController {
 	
 	private func setupRefreshControl() {
 		refreshControl = UIRefreshControl()
-		refreshControl?.addTarget(self, action: #selector(downloadContent), for: .valueChanged)
+		refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
 	}
 	
-	func downloadContent() {
-		guard let url = URL(string: "\(apiEndpoint)posts") else {return}
+	func refresh() {
+		downloadContent()
+	}
+	
+	func downloadContent(page: Int = 1) {
+		guard let url = URL(string: "\(apiEndpoint)posts?page=\(page)") else {return}
 		dataTask?.cancel()
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -49,10 +66,17 @@ class BlogTableViewController: UITableViewController {
 					self.tableView.reloadData()
 				}
 			}
+			
+			if let error = error {
+				if error.localizedDescription == "cancelled" {return}
+				self.present(error)
+				return
+			}
+			
 			guard let data = data,
 				let jsonData = (try? JSONSerialization.jsonObject(with: data, options: [])),
 				let body = jsonData as? [JSON],
-				error == nil
+				body.count > 0
 				else {return}
 			self.items = []
 			for item in body {
@@ -74,11 +98,18 @@ class BlogTableViewController: UITableViewController {
 				
 				let mediaID = item["featured_media"] as? Int
 				
+				var renderedExcerpt: String?
+				
+				if let excerpt = item["excerpt"] as? JSON {
+					renderedExcerpt = excerpt["rendered"] as? String
+				}
+				
 				let blogItem = BlogItem(title: renderedTitle,
 				                        content: renderedContent,
 				                        url: url,
 				                        date: date,
-				                        mediaID: mediaID)
+				                        mediaID: mediaID,
+				                        excerpt: renderedExcerpt)
 				
 				self.items.append(blogItem)
 			}
@@ -97,18 +128,43 @@ class BlogTableViewController: UITableViewController {
     }
 	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "blogCell", for: indexPath)
 		let blogItem = items[indexPath.row]
-		ImageLoader.shared.image(for: blogItem.mediaID) { image in
-			DispatchQueue.main.async {
-				cell.imageView?.image = image
-				cell.setNeedsLayout()
+		let mediaID = blogItem.mediaID ?? 0
+		
+        let cell = tableView.dequeueReusableCell(withIdentifier: "blogImageCell", for: indexPath) as! BlogTableViewCell
+		
+		let image = images.object(forKey: mediaID as NSNumber)
+		if mediaID > 0 && image == nil { //If 0 then there is no media for the image
+			DataLoader.shared.image(for: mediaID) { image in
+				guard let image = image else {return}
+				self.images.setObject(image, forKey: mediaID as NSNumber)
+				cell.setThumbnail(image)
 			}
 		}
-		cell.textLabel?.text = blogItem.title
+		
+		cell.titleLabel?.text = blogItem.title
 		if let date = blogItem.date {
-			cell.detailTextLabel?.text = readableFormatter.string(from: date)
+			cell.dateLabel?.text = readableFormatter.string(from: date)
 		}
+		
+		let string: NSAttributedString
+		
+		if let excerpt = blogItem.excerpt {
+			string = excerpt.htmlAttributed ?? NSAttributedString(string: excerpt)
+		} else {
+			let content = blogItem.content
+			string = content.htmlAttributed ?? NSAttributedString(string: content)
+		}
+		
+		let mutableAttributedString = string.mutableCopy() as! NSMutableAttributedString
+		mutableAttributedString.setBaseFont(baseFont: .systemFont(ofSize: 16))
+		
+		let stringRange = NSMakeRange(0, mutableAttributedString.length)
+		let paragraphStyle = NSMutableParagraphStyle()
+		paragraphStyle.lineBreakMode = .byTruncatingTail
+		mutableAttributedString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: stringRange)
+		
+		cell.contentLabel.attributedText = mutableAttributedString
         return cell
     }
 	
@@ -124,7 +180,7 @@ class BlogTableViewController: UITableViewController {
 			else {return}
 		
 		let item = items[selected.row]
-		postController.postType = .html(string: item.content)
+		postController.postType = .html(item.content)
 		postController.title = item.title
     }
 
