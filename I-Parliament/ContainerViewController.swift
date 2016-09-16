@@ -21,9 +21,6 @@ class ContainerViewController: UIViewController {
 	var imageView: UIImageView?
 	
 	@IBOutlet weak var segmentedControl: UISegmentedControl!
-	@IBOutlet weak var toolbar: HairlineToolbar!
-	
-	let newToolbar = HairlineToolbar()
 	
 	let topOffset: CGFloat = 37
 	let bottomOffset = -49 - 1 / UIScreen.main.scale
@@ -34,19 +31,19 @@ class ContainerViewController: UIViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
-		updateHairline(hide: false)
+		setHairline(hidden: false)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		updateHairline(hide: true)
+		setHairline(hidden: true)
 	}
 	
-	private func updateHairline(hide: Bool) {
+	private func setHairline(hidden: Bool) {
 		guard let navigationBar = navigationController?.navigationBar else {return}
 		for view in navigationBar.subviews {
 			for subview in view.subviews where subview is UIImageView {
-				subview.isHidden = hide
+				subview.isHidden = hidden
 			}
 		}
 	}

@@ -209,7 +209,6 @@ I-Parliament bridges the gap between the Parliament of India and the Youth, the 
                     <navigationItem key="navigationItem" title="Blog" id="ruB-JJ-p5r"/>
                     <connections>
                         <outlet property="segmentedControl" destination="o7R-bE-ce8" id="7AC-FK-sgW"/>
-                        <outlet property="toolbar" destination="mMs-Jg-Zka" id="J4X-ss-HFe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbt-ET-qaA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -412,7 +411,6 @@ More Content
                     <navigationItem key="navigationItem" title="Downloads" id="Nxn-2M-LIb"/>
                     <connections>
                         <outlet property="segmentedControl" destination="Osp-Ev-Kzn" id="VqA-kz-Azd"/>
-                        <outlet property="toolbar" destination="hxy-gP-tk3" id="UvE-LP-SmN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="red-Hd-fIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -656,7 +654,7 @@ democracyclub@iparliament.in</string>
         <image name="Instagram" width="33" height="33"/>
         <image name="Locate" width="25" height="25"/>
         <image name="Locate Filled" width="25" height="25"/>
-        <image name="Logo" width="10602" height="7397"/>
+        <image name="Logo" width="1920" height="1340"/>
         <image name="Twitter" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
