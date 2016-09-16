@@ -18,43 +18,37 @@ class ContainerViewController: UIViewController {
 	
 	var delegate: ChildViewController?
 	
-	var imageView: UIImageView?
+	var hairlineView: UIImageView? {
+		return navigationController?.navigationBar.subviews.first?.subviews.first as? UIImageView
+	}
 	
 	@IBOutlet weak var segmentedControl: UISegmentedControl!
-	
-	let topOffset: CGFloat = 37
-	let bottomOffset = -49 - 1 / UIScreen.main.scale
 	
 	@IBAction func segmentChanged(_ sender: AnyObject) {
 		delegate?.segmentChanged(sender)
 	}
 	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		navigationController?.view.backgroundColor = .white
+	}
+	
 	override func viewWillDisappear(_ animated: Bool) {
-		super.viewDidDisappear(animated)
-		setHairline(hidden: false)
+		super.viewWillDisappear(animated)
+		hairlineView?.isHidden = false
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		setHairline(hidden: true)
-	}
-	
-	private func setHairline(hidden: Bool) {
-		guard let navigationBar = navigationController?.navigationBar else {return}
-		for view in navigationBar.subviews {
-			for subview in view.subviews where subview is UIImageView {
-				subview.isHidden = hidden
-			}
-		}
+		hairlineView?.isHidden = true
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		delegate = segue.destination as? ChildViewController
 		
-		delegate?.tableView.contentInset.top = topOffset
-		delegate?.tableView.scrollIndicatorInsets.top = topOffset
-		delegate?.tableView.contentInset.bottom = bottomOffset
-		delegate?.tableView.scrollIndicatorInsets.bottom = bottomOffset
+		let insets = UIEdgeInsets(top: 37, left: 0, bottom: -49 - 1 / UIScreen.main.scale, right: 0)
+		delegate?.tableView.contentInset = insets
+		delegate?.tableView.scrollIndicatorInsets = insets
 		
 		delegate?.segmentedControl = segmentedControl
 	}

@@ -20,7 +20,7 @@ class ContactViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		contactTextView.contentOffset = .zero //Fixes a bug that offsets the UITextView
+		contactTextView.contentOffset.y = 0 //Fixes a bug that offsets the UITextView
 		contactTextView.flashScrollIndicators()
 	}
 
