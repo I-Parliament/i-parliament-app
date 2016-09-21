@@ -14,15 +14,24 @@ class LicenseViewController: UIViewController {
 	
 	var licenseText: String!
 	
+	var firstShow = true
+	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		licenseTextView.text = licenseText
-		licenseTextView.contentOffset.y = 0
-    }
+	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		licenseTextView.flashScrollIndicators()
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		if firstShow {
+			firstShow = false
+			licenseTextView.contentOffset.y = -topLayoutGuide.length
+			licenseTextView.flashScrollIndicators()
+		}
 	}
 
 }

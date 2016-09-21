@@ -18,10 +18,15 @@ class ContactViewController: UIViewController {
 		UIApplication.shared.openURL(url)
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		contactTextView.contentOffset.y = 0 //Fixes a bug that offsets the UITextView
-		contactTextView.flashScrollIndicators()
+	var firstShow = true
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		if firstShow {
+			firstShow = false
+			contactTextView.contentOffset.y = 0 //Fixes a bug that offsets the UITextView
+			contactTextView.flashScrollIndicators()
+		}
 	}
 
 }

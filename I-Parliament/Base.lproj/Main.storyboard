@@ -14,6 +14,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="16" navigationOrientation="horizontal" spineLocation="none" id="Teq-rA-fGq" customClass="HomePageViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="Jj3-OR-ePa"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5g-sj-cEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -22,18 +23,19 @@
         <!--Home View Controller-->
         <scene sceneID="rZo-br-RIm">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="crm-zF-6z6" customClass="HomeViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" automaticallyAdjustsScrollViewInsets="NO" id="crm-zF-6z6" customClass="HomeViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ESp-zZ-rQA"/>
                         <viewControllerLayoutGuide type="bottom" id="RLe-mA-FCN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VZ7-Ik-stl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cqi-3K-PL4"/>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="969-VW-a75">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="8" maxX="0.0" maxY="0.0"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -45,9 +47,9 @@
                             <constraint firstItem="969-VW-a75" firstAttribute="leading" secondItem="VZ7-Ik-stl" secondAttribute="leading" constant="16" id="AaN-Du-LfH"/>
                             <constraint firstItem="969-VW-a75" firstAttribute="top" secondItem="cqi-3K-PL4" secondAttribute="bottom" id="CBh-di-9nJ"/>
                             <constraint firstAttribute="trailing" secondItem="cqi-3K-PL4" secondAttribute="trailing" id="Ffa-co-9rO"/>
+                            <constraint firstItem="cqi-3K-PL4" firstAttribute="top" secondItem="VZ7-Ik-stl" secondAttribute="top" id="ZCF-cc-TlV"/>
                             <constraint firstItem="cqi-3K-PL4" firstAttribute="height" secondItem="VZ7-Ik-stl" secondAttribute="height" multiplier="1:2" id="kAd-0t-LXs"/>
                             <constraint firstItem="cqi-3K-PL4" firstAttribute="leading" secondItem="VZ7-Ik-stl" secondAttribute="leading" id="lVm-s0-tNl"/>
-                            <constraint firstItem="cqi-3K-PL4" firstAttribute="top" secondItem="ESp-zZ-rQA" secondAttribute="bottom" id="mpf-1d-Aq9"/>
                             <constraint firstAttribute="trailing" secondItem="969-VW-a75" secondAttribute="trailing" constant="16" id="vwU-OW-h9m"/>
                         </constraints>
                     </view>
@@ -60,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQ1-Q2-bax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3751.1999999999998" y="-600.44977511244383"/>
+            <point key="canvasLocation" x="3653" y="-600"/>
         </scene>
         <!--Location-->
         <scene sceneID="xE1-Gn-BVr">
@@ -71,7 +73,7 @@
                         <viewControllerLayoutGuide type="bottom" id="D23-nQ-biW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="19J-Wo-lz0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -85,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fw-P7-XDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2812.5" y="142.6056338028169"/>
+            <point key="canvasLocation" x="2813" y="143"/>
         </scene>
         <!--Blog-->
         <scene sceneID="VfQ-HR-qTc">
@@ -96,7 +98,7 @@
                         <viewControllerLayoutGuide type="bottom" id="btx-gQ-20P"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zob-Z9-vEv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lix-8C-Il8">
@@ -104,70 +106,71 @@
                                     <segue destination="u3W-eZ-EyL" kind="embed" id="zbi-bm-cDH"/>
                                 </connections>
                             </containerView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMs-Jg-Zka">
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="oZ8-KW-aTc"/>
-                                    <barButtonItem style="plain" id="BQo-B4-zJi">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="o7R-bE-ce8">
-                                            <rect key="frame" x="43" y="7" width="288" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="I-Parliament"/>
-                                                <segment title="Democracy Club"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="segmentChanged:" destination="5XG-fV-xYz" eventType="valueChanged" id="a6Y-Od-B3b"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9K0-Bg-NdW"/>
-                                </items>
-                            </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaJ-mq-3Uk" userLabel="Hairline View">
                                 <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ug2-sA-rxf"/>
                                 </constraints>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AE8-IJ-iq9">
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zar-Ss-4vd"/>
+                                    <barButtonItem style="plain" id="KRF-52-jBW">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="9gY-qI-S9w">
+                                            <rect key="frame" x="16" y="7" width="288" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="I-Parliament"/>
+                                                <segment title="Democracy Club"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentChanged:" destination="5XG-fV-xYz" eventType="valueChanged" id="4LV-eC-Nof"/>
+                                                <action selector="segmentChanged:" destination="hh5-mb-dmo" eventType="valueChanged" id="CPO-AV-a6h"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="THw-Z3-uwL"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lix-8C-Il8" secondAttribute="trailing" id="5xh-S4-d0E"/>
+                            <constraint firstItem="AE8-IJ-iq9" firstAttribute="top" secondItem="QDA-dQ-pBe" secondAttribute="bottom" constant="-7" id="71B-ZH-uL0"/>
                             <constraint firstItem="lix-8C-Il8" firstAttribute="leading" secondItem="Zob-Z9-vEv" secondAttribute="leading" id="8eH-Lk-Xo5"/>
+                            <constraint firstItem="AE8-IJ-iq9" firstAttribute="leading" secondItem="Zob-Z9-vEv" secondAttribute="leading" id="JKi-TS-Bi0"/>
                             <constraint firstItem="lix-8C-Il8" firstAttribute="top" secondItem="Zob-Z9-vEv" secondAttribute="top" id="Lh2-Pp-uVt"/>
-                            <constraint firstItem="mMs-Jg-Zka" firstAttribute="leading" secondItem="Zob-Z9-vEv" secondAttribute="leading" id="R95-1v-azJ"/>
+                            <constraint firstItem="uaJ-mq-3Uk" firstAttribute="top" secondItem="AE8-IJ-iq9" secondAttribute="bottom" id="Mo9-Py-nrS"/>
+                            <constraint firstAttribute="trailing" secondItem="AE8-IJ-iq9" secondAttribute="trailing" id="Pt0-LX-vnu"/>
                             <constraint firstItem="btx-gQ-20P" firstAttribute="top" secondItem="lix-8C-Il8" secondAttribute="bottom" id="VHt-je-1Fk"/>
-                            <constraint firstAttribute="trailing" secondItem="mMs-Jg-Zka" secondAttribute="trailing" id="VUN-gS-LLL"/>
                             <constraint firstAttribute="trailing" secondItem="uaJ-mq-3Uk" secondAttribute="trailing" id="XOY-hg-Mom"/>
-                            <constraint firstItem="uaJ-mq-3Uk" firstAttribute="top" secondItem="mMs-Jg-Zka" secondAttribute="bottom" id="kFN-Dz-8DK"/>
-                            <constraint firstItem="mMs-Jg-Zka" firstAttribute="top" secondItem="QDA-dQ-pBe" secondAttribute="bottom" constant="-7" id="qml-aH-VZR"/>
                             <constraint firstItem="uaJ-mq-3Uk" firstAttribute="leading" secondItem="Zob-Z9-vEv" secondAttribute="leading" id="vcP-QR-mFW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Blog" id="ruB-JJ-p5r"/>
                     <connections>
                         <outlet property="hairlineHeight" destination="ug2-sA-rxf" id="8ax-Dk-4K8"/>
-                        <outlet property="segmentedControl" destination="o7R-bE-ce8" id="7AC-FK-sgW"/>
+                        <outlet property="segmentedControl" destination="9gY-qI-S9w" id="jZ1-Aw-0qn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbt-ET-qaA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2812" y="840.62968515742136"/>
+            <point key="canvasLocation" x="2813" y="841"/>
         </scene>
         <!--Blog-->
         <scene sceneID="c4J-68-wgU">
             <objects>
                 <tableViewController id="u3W-eZ-EyL" customClass="BlogTableViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="lTm-pY-8ey">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="blogImageCell" id="oH2-Zw-e3I" customClass="BlogTableViewCell" customModule="I_Parliament" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="104"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oH2-Zw-e3I" id="KP7-UF-o51">
-                                    <frame key="frameInset" width="342" height="103"/>
+                                    <frame key="frameInset" width="287" height="103.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzR-pP-C8r">
@@ -245,7 +248,7 @@ More Content
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lX5-dv-6ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3652.5" y="839.26056338028172"/>
+            <point key="canvasLocation" x="3654" y="839"/>
         </scene>
         <!--Post Title-->
         <scene sceneID="6VZ-p9-hUB">
@@ -256,7 +259,7 @@ More Content
                         <viewControllerLayoutGuide type="bottom" id="t8S-aL-g5j"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ksn-vY-Rb2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -275,7 +278,7 @@ More Content
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLW-wy-iau" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5467.5" y="1201.056338028169"/>
+            <point key="canvasLocation" x="4753" y="1213"/>
         </scene>
         <!--Downloads-->
         <scene sceneID="pcc-8n-bmP">
@@ -286,7 +289,7 @@ More Content
                         <viewControllerLayoutGuide type="bottom" id="3eB-B8-xsP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YPf-hA-hSR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lzx-JL-1Rl">
@@ -299,7 +302,7 @@ More Content
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="iA8-rv-SJl"/>
                                     <barButtonItem style="plain" id="GFo-Ej-Qhc">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Osp-Ev-Kzn">
-                                            <rect key="frame" x="43" y="7" width="288" height="30"/>
+                                            <rect key="frame" x="16" y="7" width="288" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="Available"/>
@@ -342,33 +345,33 @@ More Content
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="red-Hd-fIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2812.5" y="1590.8450704225352"/>
+            <point key="canvasLocation" x="2813" y="1591"/>
         </scene>
         <!--Downloads-->
         <scene sceneID="5U0-cd-QNT">
             <objects>
                 <tableViewController id="fl2-jd-ElQ" customClass="DownloadsTableViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="e1M-6p-YBY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="availableGroupCell" textLabel="Bzo-1i-nY8" detailTextLabel="crJ-FB-fhw" style="IBUITableViewCellStyleValue1" id="r8C-24-uqi" customClass="AvailableGroupTableViewCell" customModule="I_Parliament" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r8C-24-uqi" id="YDh-1Q-uRX">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Available Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bzo-1i-nY8">
-                                            <frame key="frameInset" minX="15" minY="11" width="120" height="21"/>
+                                            <frame key="frameInset" minX="15" minY="12" width="119.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="crJ-FB-fhw">
-                                            <frame key="frameInset" minX="301" minY="11" width="59" height="21"/>
+                                            <frame key="frameInset" minX="246" minY="12" width="59" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -378,14 +381,14 @@ More Content
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="availableCell" textLabel="6cP-0i-hCW" style="IBUITableViewCellStyleDefault" id="rhz-ql-xr3" customClass="AvailableItemTableViewCell" customModule="I_Parliament" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rhz-ql-xr3" id="cE5-gh-XOJ">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Available Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6cP-0i-hCW">
-                                            <frame key="frameInset" minX="15" width="345" height="43"/>
+                                            <frame key="frameInset" minX="15" width="290" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -398,14 +401,14 @@ More Content
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="downloadedCell" textLabel="SRm-zp-KHK" style="IBUITableViewCellStyleDefault" id="QlR-g1-3yf">
-                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="116" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QlR-g1-3yf" id="UjD-Pv-Zab">
-                                    <frame key="frameInset" width="342" height="43"/>
+                                    <frame key="frameInset" width="287" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Downloaded Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SRm-zp-KHK">
-                                            <frame key="frameInset" minX="15" width="325" height="43"/>
+                                            <frame key="frameInset" minX="15" width="270" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -427,7 +430,7 @@ More Content
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hv8-h7-Y8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3654.375" y="1590.3169014084508"/>
+            <point key="canvasLocation" x="3656" y="1590"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="ER5-lU-jlh">
@@ -438,7 +441,7 @@ More Content
                         <viewControllerLayoutGuide type="bottom" id="YON-Cb-CdF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ws4-LM-IiA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wOF-9A-Ouq">
@@ -542,7 +545,7 @@ democracyclub@iparliament.in</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpl-Wi-Jm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2812" y="2330"/>
+            <point key="canvasLocation" x="2813" y="2330"/>
         </scene>
         <!--Credits-->
         <scene sceneID="pZ1-OW-W1W">
@@ -550,7 +553,7 @@ democracyclub@iparliament.in</string>
                 <viewControllerPlaceholder storyboardName="Credits" id="kLm-lh-6Nh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIB-Sm-fqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3415" y="2329"/>
+            <point key="canvasLocation" x="3434" y="2329"/>
         </scene>
         <!--Home-->
         <scene sceneID="qQj-H1-bvS">
@@ -602,7 +605,7 @@ democracyclub@iparliament.in</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="5XG-fV-xYz" kind="relationship" relationship="rootViewController" id="6l0-8e-wqu"/>
+                        <segue destination="5XG-fV-xYz" kind="relationship" relationship="rootViewController" id="W2U-iH-Gdy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWG-o5-XLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -637,7 +640,7 @@ democracyclub@iparliament.in</string>
                         <viewControllerLayoutGuide type="bottom" id="8lq-q5-VML"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6lG-OE-aKZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ribbon" translatesAutoresizingMaskIntoConstraints="NO" id="r7P-DJ-jfW"/>
@@ -648,11 +651,12 @@ democracyclub@iparliament.in</string>
                             <constraint firstItem="hq1-GF-5Vn" firstAttribute="leading" secondItem="6lG-OE-aKZ" secondAttribute="leading" constant="16" id="0UN-K1-Y1m"/>
                             <constraint firstAttribute="bottom" secondItem="r7P-DJ-jfW" secondAttribute="bottom" constant="8" id="4nS-2z-8We"/>
                             <constraint firstAttribute="trailing" secondItem="hq1-GF-5Vn" secondAttribute="trailing" constant="16" id="E3s-hJ-Ejz"/>
-                            <constraint firstItem="r7P-DJ-jfW" firstAttribute="top" secondItem="6lG-OE-aKZ" secondAttribute="top" constant="8" id="GBc-Kv-wvQ"/>
                             <constraint firstItem="r7P-DJ-jfW" firstAttribute="leading" secondItem="6lG-OE-aKZ" secondAttribute="leading" constant="16" id="GQe-k1-Lt2"/>
                             <constraint firstAttribute="bottom" secondItem="hq1-GF-5Vn" secondAttribute="bottom" constant="8" id="Gr0-9A-LBd"/>
+                            <constraint firstItem="r7P-DJ-jfW" firstAttribute="top" secondItem="w00-pV-61P" secondAttribute="bottom" id="Nvu-JX-8SL"/>
                             <constraint firstAttribute="trailing" secondItem="r7P-DJ-jfW" secondAttribute="trailing" constant="16" id="RUa-46-dgy"/>
-                            <constraint firstItem="hq1-GF-5Vn" firstAttribute="top" secondItem="6lG-OE-aKZ" secondAttribute="top" constant="8" id="wdh-3O-vBs"/>
+                            <constraint firstItem="hq1-GF-5Vn" firstAttribute="top" secondItem="w00-pV-61P" secondAttribute="bottom" id="oTu-WS-jHJ"/>
+                            <constraint firstItem="hq1-GF-5Vn" firstAttribute="top" secondItem="w00-pV-61P" secondAttribute="bottom" id="w5W-9T-ryN"/>
                         </constraints>
                     </view>
                     <connections>
@@ -663,7 +667,7 @@ democracyclub@iparliament.in</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjf-Aa-gLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="2331"/>
+            <point key="canvasLocation" x="136.80000000000001" y="2330.2848575712146"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cPk-4d-4l1">
@@ -684,7 +688,7 @@ democracyclub@iparliament.in</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbX-pJ-M4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030" y="2332"/>
+            <point key="canvasLocation" x="996" y="2330"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JTw-7e-7LR">
@@ -721,7 +725,7 @@ democracyclub@iparliament.in</string>
         <image name="Twitter" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xdi-wy-AM3"/>
+        <segue reference="HHN-qn-2td"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.58039215686274503" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

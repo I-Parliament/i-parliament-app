@@ -9,12 +9,11 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-	var index: Int!
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var textView: UITextView!
 	
+	var index: Int!
 	var infoItem: InfoItem!
 	
 	override func viewDidLoad() {
@@ -23,8 +22,8 @@ class HomeViewController: UIViewController {
 		textView.text = infoItem.body
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
 		textView.contentOffset.y = 0
 		textView.flashScrollIndicators()
 	}

@@ -31,8 +31,7 @@ class HomePageViewController: UIPageViewController {
 		
 		let pageControl = UIPageControl.appearance()
 		pageControl.backgroundColor = .white
-		let appDelegate = UIApplication.shared.delegate as? AppDelegate
-		pageControl.currentPageIndicatorTintColor = appDelegate?.window?.tintColor
+		pageControl.currentPageIndicatorTintColor = UIApplication.shared.keyWindow?.tintColor
 		pageControl.pageIndicatorTintColor = .lightGray
     }
 	
