@@ -18,8 +18,8 @@
 		560EC0E51D787D1900D8C71D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560EC0E31D787D1900D8C71D /* LaunchScreen.storyboard */; };
 		560EC0ED1D78861600D8C71D /* LocateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EC0EC1D78861600D8C71D /* LocateViewController.swift */; };
 		560EC0F31D78881000D8C71D /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EC0F21D78881000D8C71D /* ContactViewController.swift */; };
-		5613D2E11D882CD2007A2C53 /* HairlineToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613D2E01D882CD2007A2C53 /* HairlineToolbar.swift */; };
 		5613D2E31D883364007A2C53 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613D2E21D883364007A2C53 /* ContainerViewController.swift */; };
+		561AD89F1D91834000C04304 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561AD89E1D91834000C04304 /* SplashScreenViewController.swift */; };
 		563419551D80456D00044561 /* DownloadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563419541D80456D00044561 /* DownloadsTableViewController.swift */; };
 		5634195A1D8066B900044561 /* AvailableGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563419591D8066B900044561 /* AvailableGroup.swift */; };
 		5634195C1D8066C300044561 /* AvailableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634195B1D8066C300044561 /* AvailableItem.swift */; };
@@ -55,8 +55,8 @@
 		560EC0E61D787D1900D8C71D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		560EC0EC1D78861600D8C71D /* LocateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateViewController.swift; sourceTree = "<group>"; };
 		560EC0F21D78881000D8C71D /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
-		5613D2E01D882CD2007A2C53 /* HairlineToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HairlineToolbar.swift; sourceTree = "<group>"; };
 		5613D2E21D883364007A2C53 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		561AD89E1D91834000C04304 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		563419541D80456D00044561 /* DownloadsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadsTableViewController.swift; sourceTree = "<group>"; };
 		563419591D8066B900044561 /* AvailableGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableGroup.swift; sourceTree = "<group>"; };
 		5634195B1D8066C300044561 /* AvailableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableItem.swift; sourceTree = "<group>"; };
@@ -167,7 +167,6 @@
 				5634195F1D80699E00044561 /* AvailableItemTableViewCell.swift */,
 				563419611D8069CE00044561 /* AvailableGroupTableViewCell.swift */,
 				5654BE671D87C1690038F126 /* BlogTableViewCell.swift */,
-				5613D2E01D882CD2007A2C53 /* HairlineToolbar.swift */,
 			);
 			name = "Views & Layout";
 			sourceTree = "<group>";
@@ -176,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				560EC0DA1D787D1900D8C71D /* AppDelegate.swift */,
+				561AD89E1D91834000C04304 /* SplashScreenViewController.swift */,
 				560EC0DC1D787D1900D8C71D /* HomeViewController.swift */,
 				5650B4D51D8C1A8700833E58 /* HomePageViewController.swift */,
 				560EC0EC1D78861600D8C71D /* LocateViewController.swift */,
@@ -351,6 +351,7 @@
 				560EC0ED1D78861600D8C71D /* LocateViewController.swift in Sources */,
 				560EC0DD1D787D1900D8C71D /* HomeViewController.swift in Sources */,
 				5613D2E31D883364007A2C53 /* ContainerViewController.swift in Sources */,
+				561AD89F1D91834000C04304 /* SplashScreenViewController.swift in Sources */,
 				56ECB7FA1D8684EF003F2F1F /* PostViewController.swift in Sources */,
 				5605CFC81D89B50C00442D1D /* License.swift in Sources */,
 				563419641D8077B600044561 /* DownloadedItem.swift in Sources */,
@@ -361,7 +362,6 @@
 				56ECBB821D871F2100C52F7F /* CreditsTableViewController.swift in Sources */,
 				5634195A1D8066B900044561 /* AvailableGroup.swift in Sources */,
 				5634195C1D8066C300044561 /* AvailableItem.swift in Sources */,
-				5613D2E11D882CD2007A2C53 /* HairlineToolbar.swift in Sources */,
 				5654BE681D87C1690038F126 /* BlogTableViewCell.swift in Sources */,
 				563419601D80699E00044561 /* AvailableItemTableViewCell.swift in Sources */,
 				56F84F441D8511C0000928AC /* BlogItem.swift in Sources */,

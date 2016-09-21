@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UQA-xA-13d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tbt-0N-Cq4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -11,18 +11,17 @@
         <!--Home Page View Controller-->
         <scene sceneID="81f-zk-Hzq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g5g-sj-cEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Teq-rA-fGq" customClass="HomePageViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="16" navigationOrientation="horizontal" spineLocation="none" id="Teq-rA-fGq" customClass="HomePageViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="Jj3-OR-ePa"/>
                 </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g5g-sj-cEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2813" y="-600"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="rZo-br-RIm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQ1-Q2-bax" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="HomeViewController" id="crm-zF-6z6" customClass="HomeViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ESp-zZ-rQA"/>
@@ -32,7 +31,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cqi-3K-PL4"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cqi-3K-PL4"/>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="969-VW-a75">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -44,11 +43,11 @@
                         <constraints>
                             <constraint firstItem="RLe-mA-FCN" firstAttribute="top" secondItem="969-VW-a75" secondAttribute="bottom" id="3Su-rd-09x"/>
                             <constraint firstItem="969-VW-a75" firstAttribute="leading" secondItem="VZ7-Ik-stl" secondAttribute="leading" constant="16" id="AaN-Du-LfH"/>
-                            <constraint firstItem="969-VW-a75" firstAttribute="top" secondItem="cqi-3K-PL4" secondAttribute="bottom" constant="8" id="CBh-di-9nJ"/>
+                            <constraint firstItem="969-VW-a75" firstAttribute="top" secondItem="cqi-3K-PL4" secondAttribute="bottom" id="CBh-di-9nJ"/>
                             <constraint firstAttribute="trailing" secondItem="cqi-3K-PL4" secondAttribute="trailing" id="Ffa-co-9rO"/>
-                            <constraint firstItem="cqi-3K-PL4" firstAttribute="top" secondItem="ESp-zZ-rQA" secondAttribute="bottom" id="Xhs-VB-9W4"/>
-                            <constraint firstItem="cqi-3K-PL4" firstAttribute="height" secondItem="VZ7-Ik-stl" secondAttribute="height" multiplier="1/3" id="kAd-0t-LXs"/>
+                            <constraint firstItem="cqi-3K-PL4" firstAttribute="height" secondItem="VZ7-Ik-stl" secondAttribute="height" multiplier="1:2" id="kAd-0t-LXs"/>
                             <constraint firstItem="cqi-3K-PL4" firstAttribute="leading" secondItem="VZ7-Ik-stl" secondAttribute="leading" id="lVm-s0-tNl"/>
+                            <constraint firstItem="cqi-3K-PL4" firstAttribute="top" secondItem="ESp-zZ-rQA" secondAttribute="bottom" id="mpf-1d-Aq9"/>
                             <constraint firstAttribute="trailing" secondItem="969-VW-a75" secondAttribute="trailing" constant="16" id="vwU-OW-h9m"/>
                         </constraints>
                     </view>
@@ -59,8 +58,9 @@
                         <outlet property="textView" destination="969-VW-a75" id="8KS-C7-wmJ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQ1-Q2-bax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3751.875" y="-600"/>
+            <point key="canvasLocation" x="3751.1999999999998" y="-600.44977511244383"/>
         </scene>
         <!--Location-->
         <scene sceneID="xE1-Gn-BVr">
@@ -104,7 +104,7 @@
                                     <segue destination="u3W-eZ-EyL" kind="embed" id="zbi-bm-cDH"/>
                                 </connections>
                             </containerView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMs-Jg-Zka" customClass="HairlineToolbar" customModule="I_Parliament" customModuleProvider="target">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMs-Jg-Zka">
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oZ8-KW-aTc"/>
                                     <barButtonItem style="plain" id="BQo-B4-zJi">
@@ -123,6 +123,12 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9K0-Bg-NdW"/>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaJ-mq-3Uk" userLabel="Hairline View">
+                                <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="ug2-sA-rxf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -132,17 +138,21 @@
                             <constraint firstItem="mMs-Jg-Zka" firstAttribute="leading" secondItem="Zob-Z9-vEv" secondAttribute="leading" id="R95-1v-azJ"/>
                             <constraint firstItem="btx-gQ-20P" firstAttribute="top" secondItem="lix-8C-Il8" secondAttribute="bottom" id="VHt-je-1Fk"/>
                             <constraint firstAttribute="trailing" secondItem="mMs-Jg-Zka" secondAttribute="trailing" id="VUN-gS-LLL"/>
+                            <constraint firstAttribute="trailing" secondItem="uaJ-mq-3Uk" secondAttribute="trailing" id="XOY-hg-Mom"/>
+                            <constraint firstItem="uaJ-mq-3Uk" firstAttribute="top" secondItem="mMs-Jg-Zka" secondAttribute="bottom" id="kFN-Dz-8DK"/>
                             <constraint firstItem="mMs-Jg-Zka" firstAttribute="top" secondItem="QDA-dQ-pBe" secondAttribute="bottom" constant="-7" id="qml-aH-VZR"/>
+                            <constraint firstItem="uaJ-mq-3Uk" firstAttribute="leading" secondItem="Zob-Z9-vEv" secondAttribute="leading" id="vcP-QR-mFW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Blog" id="ruB-JJ-p5r"/>
                     <connections>
+                        <outlet property="hairlineHeight" destination="ug2-sA-rxf" id="8ax-Dk-4K8"/>
                         <outlet property="segmentedControl" destination="o7R-bE-ce8" id="7AC-FK-sgW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbt-ET-qaA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2812.5" y="840.84507042253517"/>
+            <point key="canvasLocation" x="2812" y="840.62968515742136"/>
         </scene>
         <!--Blog-->
         <scene sceneID="c4J-68-wgU">
@@ -284,7 +294,7 @@ More Content
                                     <segue destination="fl2-jd-ElQ" kind="embed" id="aGX-Sd-rnd"/>
                                 </connections>
                             </containerView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxy-gP-tk3" customClass="HairlineToolbar" customModule="I_Parliament" customModuleProvider="target">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxy-gP-tk3">
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="iA8-rv-SJl"/>
                                     <barButtonItem style="plain" id="GFo-Ej-Qhc">
@@ -303,6 +313,12 @@ More Content
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="g7V-hl-xp8"/>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FrZ-KP-jSA" userLabel="Hairline View">
+                                <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="YL4-Mj-YtW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -312,11 +328,15 @@ More Content
                             <constraint firstItem="Lzx-JL-1Rl" firstAttribute="top" secondItem="YPf-hA-hSR" secondAttribute="top" id="Nas-6B-bLZ"/>
                             <constraint firstAttribute="trailing" secondItem="Lzx-JL-1Rl" secondAttribute="trailing" id="Tuc-th-8bc"/>
                             <constraint firstItem="hxy-gP-tk3" firstAttribute="top" secondItem="m1s-CE-vCx" secondAttribute="bottom" constant="-7" id="cJo-0S-VE5"/>
+                            <constraint firstAttribute="trailing" secondItem="FrZ-KP-jSA" secondAttribute="trailing" id="g2N-wP-R2t"/>
                             <constraint firstItem="hxy-gP-tk3" firstAttribute="leading" secondItem="YPf-hA-hSR" secondAttribute="leading" id="hSA-p3-6NU"/>
+                            <constraint firstItem="FrZ-KP-jSA" firstAttribute="leading" secondItem="YPf-hA-hSR" secondAttribute="leading" id="kKa-61-Gbh"/>
+                            <constraint firstItem="FrZ-KP-jSA" firstAttribute="top" secondItem="hxy-gP-tk3" secondAttribute="bottom" id="ob7-RH-GBQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Downloads" id="Nxn-2M-LIb"/>
                     <connections>
+                        <outlet property="hairlineHeight" destination="YL4-Mj-YtW" id="CGY-KT-9Zh"/>
                         <outlet property="segmentedControl" destination="Osp-Ev-Kzn" id="VqA-kz-Azd"/>
                     </connections>
                 </viewController>
@@ -522,7 +542,7 @@ democracyclub@iparliament.in</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpl-Wi-Jm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2814.375" y="2333.4507042253522"/>
+            <point key="canvasLocation" x="2812" y="2330"/>
         </scene>
         <!--Credits-->
         <scene sceneID="pZ1-OW-W1W">
@@ -530,7 +550,7 @@ democracyclub@iparliament.in</string>
                 <viewControllerPlaceholder storyboardName="Credits" id="kLm-lh-6Nh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIB-Sm-fqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3415.3125" y="2332.394366197183"/>
+            <point key="canvasLocation" x="3415" y="2329"/>
         </scene>
         <!--Home-->
         <scene sceneID="qQj-H1-bvS">
@@ -608,6 +628,43 @@ democracyclub@iparliament.in</string>
             </objects>
             <point key="canvasLocation" x="1815" y="1590.8450704225352"/>
         </scene>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="VBa-KO-09k">
+            <objects>
+                <viewController id="Tbt-0N-Cq4" customClass="SplashScreenViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w00-pV-61P"/>
+                        <viewControllerLayoutGuide type="bottom" id="8lq-q5-VML"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6lG-OE-aKZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ribbon" translatesAutoresizingMaskIntoConstraints="NO" id="r7P-DJ-jfW"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoRibbon" translatesAutoresizingMaskIntoConstraints="NO" id="hq1-GF-5Vn"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hq1-GF-5Vn" firstAttribute="leading" secondItem="6lG-OE-aKZ" secondAttribute="leading" constant="16" id="0UN-K1-Y1m"/>
+                            <constraint firstAttribute="bottom" secondItem="r7P-DJ-jfW" secondAttribute="bottom" constant="8" id="4nS-2z-8We"/>
+                            <constraint firstAttribute="trailing" secondItem="hq1-GF-5Vn" secondAttribute="trailing" constant="16" id="E3s-hJ-Ejz"/>
+                            <constraint firstItem="r7P-DJ-jfW" firstAttribute="top" secondItem="6lG-OE-aKZ" secondAttribute="top" constant="8" id="GBc-Kv-wvQ"/>
+                            <constraint firstItem="r7P-DJ-jfW" firstAttribute="leading" secondItem="6lG-OE-aKZ" secondAttribute="leading" constant="16" id="GQe-k1-Lt2"/>
+                            <constraint firstAttribute="bottom" secondItem="hq1-GF-5Vn" secondAttribute="bottom" constant="8" id="Gr0-9A-LBd"/>
+                            <constraint firstAttribute="trailing" secondItem="r7P-DJ-jfW" secondAttribute="trailing" constant="16" id="RUa-46-dgy"/>
+                            <constraint firstItem="hq1-GF-5Vn" firstAttribute="top" secondItem="6lG-OE-aKZ" secondAttribute="top" constant="8" id="wdh-3O-vBs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="noRibbonImageView" destination="hq1-GF-5Vn" id="EG5-4D-iE0"/>
+                        <outlet property="ribbonImageView" destination="r7P-DJ-jfW" id="Qp9-VT-a4M"/>
+                        <segue destination="UQA-xA-13d" kind="presentation" identifier="showTabBarController" modalTransitionStyle="crossDissolve" id="aLH-Yj-Mho"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yjf-Aa-gLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="2331"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cPk-4d-4l1">
             <objects>
@@ -627,7 +684,7 @@ democracyclub@iparliament.in</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbX-pJ-M4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998" y="2332"/>
+            <point key="canvasLocation" x="1030" y="2332"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JTw-7e-7LR">
@@ -646,7 +703,7 @@ democracyclub@iparliament.in</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lxq-CY-BKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1816.875" y="2333.4507042253522"/>
+            <point key="canvasLocation" x="1814" y="2331"/>
         </scene>
     </scenes>
     <resources>
@@ -659,10 +716,12 @@ democracyclub@iparliament.in</string>
         <image name="Instagram" width="33" height="33"/>
         <image name="Locate" width="25" height="25"/>
         <image name="Locate Filled" width="25" height="25"/>
+        <image name="NoRibbon" width="1920" height="1279"/>
+        <image name="Ribbon" width="1920" height="1279"/>
         <image name="Twitter" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KtK-mt-KjP"/>
+        <segue reference="Xdi-wy-AM3"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.58039215686274503" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -18,9 +18,11 @@ class ContainerViewController: UIViewController {
 	
 	var delegate: ChildViewController?
 	
-	var hairlineView: UIImageView? {
+	var hairlineView: UIImageView? { //The original hairline
 		return navigationController?.navigationBar.subviews.first?.subviews.first as? UIImageView
 	}
+	
+	@IBOutlet weak var hairlineHeight: NSLayoutConstraint! //For the custom hairline
 	
 	@IBOutlet weak var segmentedControl: UISegmentedControl!
 	
@@ -31,6 +33,7 @@ class ContainerViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationController?.view.backgroundColor = .white
+		hairlineHeight.constant = 1 / UIScreen.main.scale
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
