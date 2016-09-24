@@ -25,7 +25,7 @@ class HomePageViewController: UIPageViewController {
 		navigationItem.title = items[0].title
 		tabBarController?.view.backgroundColor = .white
 		
-		if let controller = homeViewController(index: 0) {
+		if let controller = homeViewController(at: 0) {
 			setViewControllers([controller], direction: .forward, animated: false, completion: nil)
 		}
 		
@@ -35,7 +35,7 @@ class HomePageViewController: UIPageViewController {
 		pageControl.pageIndicatorTintColor = .lightGray
     }
 	
-	func homeViewController(index: Int) -> HomeViewController? {
+	func homeViewController(at index: Int) -> HomeViewController? {
 		guard let controller = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else {return nil}
 		controller.index = index
 		controller.infoItem = items[index]
@@ -50,14 +50,14 @@ extension HomePageViewController: UIPageViewControllerDataSource {
 		guard let controller = viewController as? HomeViewController else {return nil}
 		let newIndex = controller.index - 1
 		guard newIndex > -1 else {return nil}
-		return homeViewController(index: newIndex)
+		return homeViewController(at: newIndex)
 	}
 	
 	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
 		guard let controller = viewController as? HomeViewController else {return nil}
 		let newIndex = controller.index + 1
 		guard newIndex < items.count else {return nil}
-		return homeViewController(index: newIndex)
+		return homeViewController(at: newIndex)
 	}
 	
 	func presentationCount(for pageViewController: UIPageViewController) -> Int {

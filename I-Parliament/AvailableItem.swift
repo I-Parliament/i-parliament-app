@@ -8,14 +8,11 @@
 
 import Foundation
 
+//Not a struct as it needs to be passed by reference
 class AvailableItem {
 	var id: Int
 	var title: String
 	var url: URL
-	
-	var fileName: String {
-		return "\(title)_\(id).pdf"
-	}
 	
 	init(id: Int, title: String, url: URL) {
 		self.id = id

@@ -16,19 +16,15 @@ class AvailableGroupTableViewCell: UITableViewCell {
 		didSet {
 			textLabel?.text = availableGroup.title
 			let items = availableGroup.items.count
-			var detailString = "\(items) item"
-			if items > 1 {
-				detailString += "s"
-			}
+			let detailString = "\(items) item\(items == 1 ? "" : "s")"
 			detailTextLabel?.text = detailString
 		}
 	}
 	
     override func awakeFromNib() {
         super.awakeFromNib()
-		let disclosureView = UIImageView(image: #imageLiteral(resourceName: "Disclosure"))
-		disclosureView.tintColor = UIColor(white: 0.78, alpha: 1)
-		accessoryView = disclosureView
+		accessoryView = UIImageView(image: #imageLiteral(resourceName: "Disclosure"))
+		accessoryView?.tintColor = UIColor(white: 0.78, alpha: 1)
     }
 	
 	func twirl(in tableView: UITableView) {
@@ -53,8 +49,7 @@ class AvailableGroupTableViewCell: UITableViewCell {
 	- parameter duration: If greater than 0, the rotation is animated. The default is 0.
 	*/
 	func updateDisclosureView(duration: TimeInterval = 0) {
-		let decimalDegrees: CGFloat = availableGroup.expanded ? 0.5 : 0
-		let radians = decimalDegrees * CGFloat(M_PI)
+		let radians: CGFloat = availableGroup.expanded ? .pi / 2 : 0
 		UIView.animate(withDuration: duration) {
 			self.accessoryView?.transform = CGAffineTransform(rotationAngle: radians)
 		}

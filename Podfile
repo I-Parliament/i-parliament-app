@@ -7,4 +7,5 @@ target 'I-Parliament' do
 
   # Pods for I-Parliament
   pod 'GoogleMaps'
+  pod 'SwiftyJSON'
 end

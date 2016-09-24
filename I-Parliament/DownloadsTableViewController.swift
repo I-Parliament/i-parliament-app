@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class DownloadsTableViewController: UITableViewController, ChildViewController {
 	
@@ -25,16 +26,15 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 		isEditing = false
 		navigationItem.setLeftBarButton(availableSelected ? nil : editButtonItem, animated: true)
 		
-		let animationDirection: UITableViewRowAnimation = availableSelected ? .right : .left
-		
+		tableView.reloadData() /* //TODO: Fix the animation in BlogViewController and then comment this line
 		tableView.beginUpdates()
-		tableView.reloadSections([0], with: animationDirection)
+		tableView.reloadSections([0], with: availableSelected ? .right : .left)
 		if availableGroups.count > 1 { //We need to add or remove the extra section
-			let indexSet = IndexSet(integersIn: Range(uncheckedBounds: (1, availableGroups.count)))
+			let indexSet = IndexSet(integersIn: 1..<availableGroups.count)
 			let sectionFunction = availableSelected ? tableView.insertSections : tableView.deleteSections
 			sectionFunction(indexSet, .left)
 		}
-		tableView.endUpdates()
+		tableView.endUpdates() //Rip animation*/
 		
 		if availableSelected {
 			setupRefreshControl()
@@ -45,6 +45,7 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 	}
 	
 	override func viewDidLoad() {
+		super.viewDidLoad()
 		setupRefreshControl()
 		refreshData()
 	}
@@ -62,7 +63,7 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 	}
 	
 	func fetchAvailable() {
-		guard let url = URL(string: "\(apiEndpoint)media?mime_type=application%2Fpdf") else {return}
+		guard let url = URL(string: "\(apiEndpoint)media?mime_type=application%2Fpdf&per_page=100") else {return}
 		dataTask?.cancel()
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -73,22 +74,24 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 					self.tableView.reloadData()
 				}
 			}
+			
+			if let error = error {
+				if error.localizedDescription == "cancelled" {return}
+				self.present(error)
+				return
+			}
+			
 			guard let data = data,
-				let jsonData = (try? JSONSerialization.jsonObject(with: data, options: [])),
-				let body = jsonData as? [JSON],
-				error == nil
-				else {return}
+				let body = JSON(data: data).array else {return}
+			
 			self.availableGroups = []
+			
 			for item in body {
-				guard let stringURL = item["source_url"] as? String,
+				guard let stringURL = item["source_url"].string,
 					let url = URL(string: stringURL),
-					
-					let title = item["title"] as? JSON,
-					let renderedTitle = title["rendered"] as? String,
-					
-					let id = item["id"] as? Int,
-					
-					let itemDescription = item["description"] as? String
+					let title = item["title"]["rendered"].string,
+					let id = item["id"].int,
+					let itemDescription = item["description"].string
 					else {return}
 				
 				let splitDescription = itemDescription.components(separatedBy: "Group: ")
@@ -97,7 +100,7 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 				
 				let groupName = splitDescription[1].htmlDecoded
 				
-				let availableItem = AvailableItem(id: id, title: renderedTitle.htmlDecoded, url: url)
+				let availableItem = AvailableItem(id: id, title: title.htmlDecoded, url: url)
 				
 				if let index = self.availableGroups.index(where: {$0.title == groupName}) {
 					self.availableGroups[index].items.append(availableItem)
@@ -108,27 +111,6 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 			}
 		}
 		dataTask?.resume()
-	}
-	
-	func fetchDownloaded() {
-		let fileManager = FileManager.default
-		
-		guard let documents = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false),
-			let fileURLs = try? fileManager.contentsOfDirectory(at: documents, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
-			else {return}
-		
-		downloadedItems = []
-		
-		for fileURL in fileURLs {
-			let fileParts = fileURL.lastPathComponent.components(separatedBy: "_")
-			guard fileParts.count > 1 else {return}
-			guard let lastPart = fileParts.last?.components(separatedBy: ".pdf").first,
-				let id = Int(lastPart) else {return}
-			let title = fileParts.dropLast().joined(separator: "_")
-			
-			let item = DownloadedItem(id: id, title: title, url: fileURL)
-			downloadedItems.append(item)
-		}
 	}
 	
 	//MARK: - Table view data source
@@ -188,83 +170,97 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 		deleteItem(at: indexPath)
 	}
 	
-	func deleteItem(at indexPath: IndexPath) {
-		guard !availableSelected && downloadedItems.count > indexPath.row else {return}
-		let filePath = downloadedItems[indexPath.row].url
-		try? FileManager.default.removeItem(at: filePath)
-		
-		fetchDownloaded()
-		tableView.deleteRows(at: [indexPath], with: .automatic)
-	}
-	
 	//MARK: - Navigation
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		let senderRow: IndexPath?
+		if let cell = (sender as? UITableViewCell) {
+			senderRow = tableView.indexPath(for: cell)
+		} else {
+			senderRow = nil
+		}
 		guard let postController = segue.destination as? PostViewController,
-			let selected = tableView.indexPathForSelectedRow
+			let indexPath = tableView.indexPathForSelectedRow ?? senderRow
 			else {return}
 		
 		if availableSelected {
-			let group = availableGroups[selected.section]
-			let item = group.items[selected.row - 1]
-			postController.postType = .remote(item.url)
+			let group = availableGroups[indexPath.section]
+			let item = group.items[indexPath.row - 1]
+			postController.postType = .remoteFile(item.url)
 			postController.title = item.title
 			return
 		}
 		
-		let item = downloadedItems[selected.row]
-		postController.postType = .local(item.url)
+		let item = downloadedItems[indexPath.row]
+		postController.postType = .localFile(item.url)
 		postController.title = item.title
 	}
 }
 
+//MARK: - File and download management
+
 extension DownloadsTableViewController: AvailableItemDownloadDelegate {
 	
-	func urls(for item: AvailableItem) -> [URL] {
-		let fileManager = FileManager.default
-		guard let documents = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-			else {return []}
-		
-		if let fileURLs = try? fileManager.contentsOfDirectory(at: documents, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles]) {
-			return fileURLs.filter { url in
-				let lastComponent = url.lastPathComponent.components(separatedBy: "_").last
-				let noExtension = lastComponent?.components(separatedBy: ".pdf").first ?? ""
-				let id = Int(noExtension)
-				return id == item.id
-			}
+	func fetchDownloaded() {
+		downloadedItems = []
+		let fileURLs = urls()
+		for fileURL in fileURLs {
+			guard let item = DownloadedItem(url: fileURL) else {continue}
+			downloadedItems.append(item)
 		}
-		
-		return []
 	}
 	
-	func download(item: AvailableItem) {
+	//Downloads the file associated with the cell's item and saves it as "filename_id.pdf" (eg. "foo_7.pdf")
+	func downloadFile(for cell: AvailableItemTableViewCell) {
 		let fileManager = FileManager.default
+		let item = cell.availableItem!
 		guard let documents = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {return}
 		
-		let itemURLs = urls(for: item)
-		if !itemURLs.isEmpty {
-			itemURLs.forEach {
-				try? fileManager.removeItem(at: $0)
-			}
-			fetchDownloaded()
-			tableView.reloadData()
-			return
-		}
-		
-		let saveURL = documents.appendingPathComponent(item.fileName)
+		let saveURL = documents.appendingPathComponent("\(item.title)_\(item.id).pdf")
 		let downloadTask = URLSession.shared.downloadTask(with: item.url) { url, response, error in
-			guard let url = url,
-				error == nil
-				else {return}
+			guard let url = url, error == nil else {return}
 			
 			try? fileManager.copyItem(at: url, to: saveURL)
 			
 			self.fetchDownloaded()
 			DispatchQueue.main.async {
-				self.tableView.reloadData()
+				cell.updateSaved()
 			}
 		}
+		let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+		cell.accessoryView = activityIndicator
+		activityIndicator.startAnimating()
 		downloadTask.resume()
+	}
+	
+	func deleteFile(for cell: AvailableItemTableViewCell) { //Deletes the file associated with the cell's item
+		delete(cell.availableItem)
+		cell.updateSaved(animated: true)
+	}
+	
+	func deleteItem(at indexPath: IndexPath) {
+		guard !availableSelected && downloadedItems.count > indexPath.row else {return}
+		delete(downloadedItems[indexPath.row])
+		tableView.deleteRows(at: [indexPath], with: .automatic)
+	}
+	
+	func delete(_ item: AvailableItem) {
+		let fileManager = FileManager.default
+		urls(for: item).forEach {try? fileManager.removeItem(at: $0)}
+		fetchDownloaded()
+	}
+	
+	//The file may have multiple URLs (because of an undetected bug), so fetch all instances of the file by filtering by id
+	func urls(for item: AvailableItem? = nil) -> [URL] {
+		let fileManager = FileManager.default
+		guard let documents = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false),
+			let fileURLs = try? fileManager.contentsOfDirectory(at: documents, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
+			else {return []}
+		if let id = item?.id {
+			return fileURLs.filter { id == DownloadedItem(url: $0)?.id }
+		} else {
+			return fileURLs
+		}
 	}
 }
 
@@ -298,6 +294,7 @@ extension String {
 	}
 	
 	var htmlDecoded: String {
+		guard contains("&") else {return self}
 		return htmlAttributed?.string ?? self
 	}
 	

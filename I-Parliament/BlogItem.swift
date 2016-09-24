@@ -10,26 +10,30 @@ import UIKit
 
 class BlogItem: Equatable { //Pass by reference
 	var title: String
-	var content: String
 	var url: URL
 	var date: Date?
-	var mediaID: Int?
-	var excerpt: String?
+	var mediaID: Int
+	var categories: [Int]
+	var excerpt: String
 	
-	init(title: String, content: String, url: URL, date: Date?, mediaID: Int?, excerpt: String?) {
+	var attributedString: NSAttributedString {
+		return excerpt.htmlAttributed ?? NSAttributedString(string: excerpt)
+	}
+	
+	init(title: String, url: URL, date: Date?, mediaID: Int?, excerpt: String, categories: [Int]?) {
 		self.title = title
-		self.content = content
 		self.date = date
-		self.mediaID = mediaID
+		self.mediaID = mediaID ?? 0
 		self.url = url
 		self.excerpt = excerpt
+		self.categories = categories ?? []
 	}
 }
 
 func ==(lhs: BlogItem, rhs: BlogItem) -> Bool {
 	return lhs.title == rhs.title
-		&& lhs.content == rhs.content
 		&& lhs.date == rhs.date
 		&& lhs.mediaID == rhs.mediaID
 		&& lhs.url == rhs.url
+		&& lhs.categories == rhs.categories
 }

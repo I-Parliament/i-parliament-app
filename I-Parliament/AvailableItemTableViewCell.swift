@@ -9,13 +9,18 @@
 import UIKit
 
 protocol AvailableItemDownloadDelegate {
-	func urls(for item: AvailableItem) -> [URL]
-	func download(item: AvailableItem)
+	func urls(for item: AvailableItem?) -> [URL]
+	func downloadFile(for cell: AvailableItemTableViewCell)
+	func deleteFile(for cell: AvailableItemTableViewCell)
 }
 
 class AvailableItemTableViewCell: UITableViewCell {
 	
 	var delegate: AvailableItemDownloadDelegate?
+	
+	var isFileDownloaded: Bool {
+		return delegate?.urls(for: availableItem).isEmpty == false
+	}
 	
 	var availableItem: AvailableItem! {
 		didSet {
@@ -34,14 +39,18 @@ class AvailableItemTableViewCell: UITableViewCell {
     }
 	
 	func downloadTapped() {
-		delegate?.download(item: availableItem)
+		let updateFunction = isFileDownloaded ? delegate?.deleteFile : delegate?.downloadFile
+		updateFunction?(self)
 	}
 	
-	func updateSaved() {
-		let image = delegate?.urls(for: availableItem).isEmpty == true ? #imageLiteral(resourceName: "Star") : #imageLiteral(resourceName: "Star Filled")
-		UIView.transition(with: downloadButton, duration: animationDuration, options: .transitionCrossDissolve, animations: {
+	func updateSaved(animated: Bool = false) {
+		let image = isFileDownloaded ? #imageLiteral(resourceName: "Download Filled") : #imageLiteral(resourceName: "Download")
+		let duration = animated && isFileDownloaded ? animationDuration : 0
+		UIView.transition(with: downloadButton, duration: duration, options: .transitionCrossDissolve, animations: {
 			self.downloadButton.setImage(image, for: .normal)
-			}, completion: nil)
+		}, completion: { _ in
+			self.accessoryView = self.downloadButton
+		})
 		downloadButton.sizeToFit()
 	}
 

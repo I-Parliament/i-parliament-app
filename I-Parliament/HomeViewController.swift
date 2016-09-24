@@ -10,22 +10,27 @@ import UIKit
 
 class HomeViewController: UIViewController {
 	
+	@IBOutlet weak var blurredImageView: UIImageView!
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var textView: UITextView!
 	
 	var index: Int!
 	var infoItem: InfoItem!
 	
+	let inset: CGFloat = 4
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		blurredImageView.image = infoItem.image
 		imageView.image = infoItem.image
 		textView.text = infoItem.body
+		textView.contentInset.top = inset
+		textView.scrollIndicatorInsets.top = inset + 4
 	}
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
-		textView.contentOffset.y = 0
-		textView.flashScrollIndicators()
+		textView.contentOffset.y = -inset
 	}
 	
 }

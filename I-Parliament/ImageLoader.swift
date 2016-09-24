@@ -1,5 +1,5 @@
 //
-//  DataLoader.swift
+//  ImageLoader.swift
 //  I-Parliament
 //
 //  Created by Kabir Oberai on 11/09/16.
@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-struct DataLoader {
+struct ImageLoader {
 	
-	static let shared = DataLoader()
+	static let shared = ImageLoader()
 	
 	private func image(for url: URL, completionHandler: @escaping (UIImage?) -> ()) {
 		
@@ -41,15 +42,14 @@ struct DataLoader {
 		let dataTask = URLSession.shared.dataTask(with: queryURL) { data, response, error in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			guard let data = data,
-				let jsonData = (try? JSONSerialization.jsonObject(with: data, options: [])),
-				let body = jsonData as? [JSON],
+				let body = JSON(data: data).array,
 				error == nil && !body.isEmpty
 				else {
 					completionHandler(nil)
 					return
 			}
 			
-			guard let stringURL = body[0]["source_url"] as? String,
+			guard let stringURL = body[0]["source_url"].string,
 				let url = URL(string: stringURL)
 				else {
 					completionHandler(nil)
