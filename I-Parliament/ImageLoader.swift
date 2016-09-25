@@ -67,19 +67,18 @@ struct ImageLoader {
 extension UIViewController {
 	
 	func present(_ error: Error,
-	                  title: String = "Error",
-	                  additionalActions: [UIAlertAction] = [],
-	                  completion: (() -> ())? = nil) {
-		let alertController = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
+	             animated: Bool = true,
+	             title: String = "Error",
+	             additionalActions: [UIAlertAction] = [],
+	             completion: (() -> ())? = nil) {
 		
+		let alertController = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
 		let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
 		alertController.addAction(okAction)
-		
 		for action in additionalActions {
 			alertController.addAction(action)
 		}
-		
-		present(alertController, animated: true, completion: completion)
+		present(alertController, animated: animated, completion: completion)
 	}
 	
 }

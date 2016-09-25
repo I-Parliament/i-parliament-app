@@ -29,9 +29,10 @@ class PostViewController: UIViewController {
 	
 	let webView = WKWebView()
 	
-	func shareTapped() {
+	func shareTapped(_ sender: UIBarButtonItem) {
 		guard case let .localFile(url) = postType else {return} //Weird way of saying: "Gimme a local file URL or get out"
 		let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+		activityController.popoverPresentationController?.barButtonItem = sender
 		present(activityController, animated: true, completion: nil)
 	}
 	
@@ -56,7 +57,7 @@ class PostViewController: UIViewController {
 			webView.load(request)
 		case .localFile(let url):
 			webView.loadFileURL(url, allowingReadAccessTo: url)
-			navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+			navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped(_:)))
 		case .none:
 			break
 		}
@@ -74,22 +75,32 @@ extension PostViewController: WKNavigationDelegate {
 	
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		if case .localFile = postType {return}
-		navigationItem.rightBarButtonItem = nil
+		setRefreshBarButtonItem()
 	}
 	
-	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-		present(error) //TODO: Figure out why this is not called
+	func refreshWebView() {
+		webView.reload()
+	}
+	
+	func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+		present(error)
+		setRefreshBarButtonItem()
+	}
+	
+	func setRefreshBarButtonItem() { //Sets the UIBarButtonItem to a refresh button
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshWebView))
 	}
 	
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-		if case let .remote(url) = postType {
-			let whitelist = [url, URL(string: "http://blog.iparliament.in/wp-comments-post.php")!]
-			if let requestURL = navigationAction.request.url, !whitelist.contains {$0.host == url.host && $0.path == url.path} {
-				decisionHandler(.cancel)
-				UIApplication.shared.openURL(requestURL)
-				return
-			}
+		if case let .remote(url) = postType, //If it's a blog post, then extract the blog post URL
+			let requestURL = navigationAction.request.url, //Also extract the navigation request URL
+			navigationAction.navigationType == .linkActivated, //If the navigation request was a link click (i.e. not a form)
+			url.host != requestURL.host || url.path != requestURL.path { //And it wasn't equal to the blog post URL (ignoring the #fragment)
+			
+			decisionHandler(.cancel) //Then cancel the webView request
+			UIApplication.shared.openURL(requestURL) //And instead open the requested URL in Safari
+		} else {
+			decisionHandler(.allow) //Otherwise allow the request
 		}
-		decisionHandler(.allow)
 	}
 }

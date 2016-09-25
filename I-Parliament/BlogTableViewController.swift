@@ -91,14 +91,14 @@ class BlogTableViewController: UITableViewController, ChildViewController {
 				let body = JSON(data: data).array else {return}
 			
 			//The ternary part of this expression either adds onto or resets the existing array
-			//The flatmap goes through each of the body's items and returns the corresponding blog item. 
-			//If nil, it's removed (hence flatMap and not just map)
+			//The flatMap goes through each of the items in body and returns the corresponding blog item.
+			//If the corresponding blog item is nil, it's removed (hence flatMap and not just map)
 			self.items = (fetchNext ? self.items : []) + body.flatMap { item -> BlogItem? in
 				guard let title = item["title"]["rendered"].string,
 					let excerpt = item["excerpt"]["rendered"].string,
 					let stringURL = item["link"].string,
-					let url = URL(string: stringURL + "#main") //We want to directly jump to the main tag on the webpage
-					else {return nil} //These are necessary
+					let url = URL(string: stringURL + "#main") //We want to directly jump to #main on the webpage
+					else {return nil}
 				
 				return BlogItem(title: title,
 				                url: url,
