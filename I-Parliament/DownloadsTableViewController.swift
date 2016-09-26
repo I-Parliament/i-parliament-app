@@ -233,21 +233,18 @@ extension DownloadsTableViewController: AvailableItemDownloadDelegate {
 		downloadTask.resume()
 	}
 	
-	func deleteFile(for cell: AvailableItemTableViewCell) { //Deletes the file associated with the cell's item
-		delete(cell.availableItem)
+	func deleteFile(for cell: AvailableItemTableViewCell) { //Deletes the file associated with the cell'Ws item
+		urls(for: cell.availableItem).forEach {try? FileManager.default.removeItem(at: $0)}
+		fetchDownloaded()
 		cell.updateSaved(animated: true)
 	}
 	
 	func deleteItem(at indexPath: IndexPath) {
 		guard !availableSelected && downloadedItems.count > indexPath.row else {return}
-		delete(downloadedItems[indexPath.row])
-		tableView.deleteRows(at: [indexPath], with: .automatic)
-	}
-	
-	func delete(_ item: AvailableItem) {
-		let fileManager = FileManager.default
-		urls(for: item).forEach {try? fileManager.removeItem(at: $0)}
+		let url = downloadedItems[indexPath.row].url
+		try? FileManager.default.removeItem(at: url)
 		fetchDownloaded()
+		tableView.deleteRows(at: [indexPath], with: .automatic)
 	}
 	
 	//The file may have multiple URLs (because of an undetected bug), so fetch all instances of the file by filtering by id

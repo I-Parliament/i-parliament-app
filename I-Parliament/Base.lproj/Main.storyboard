@@ -446,7 +446,7 @@ More Content
             </objects>
             <point key="canvasLocation" x="3670" y="1591"/>
         </scene>
-        <!--Contacts-->
+        <!--Contact Us-->
         <scene sceneID="ER5-lU-jlh">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="rue-SB-L2P" customClass="ContactViewController" customModule="I_Parliament" customModuleProvider="target" sceneMemberID="viewController">
@@ -546,7 +546,7 @@ democracyclub@iparliament.in</string>
                             <constraint firstItem="YON-Cb-CdF" firstAttribute="top" secondItem="wOF-9A-Ouq" secondAttribute="bottom" constant="16" id="lvN-uy-yu4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Contacts" id="sJ2-10-epf">
+                    <navigationItem key="navigationItem" title="Contact Us" id="sJ2-10-epf">
                         <barButtonItem key="rightBarButtonItem" title="Credits" id="lLT-2z-dqZ">
                             <connections>
                                 <segue destination="kLm-lh-6Nh" kind="presentation" id="FoZ-Gf-NXr"/>
@@ -704,11 +704,11 @@ democracyclub@iparliament.in</string>
             </objects>
             <point key="canvasLocation" x="996" y="2330"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Contact-->
         <scene sceneID="JTw-7e-7LR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nCd-OG-iKK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="Kde-kf-Otp"/>
+                    <tabBarItem key="tabBarItem" title="Contact" image="Contact" selectedImage="Contact Filled" id="Kde-kf-Otp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mc9-j2-CSt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -727,6 +727,8 @@ democracyclub@iparliament.in</string>
     <resources>
         <image name="Blog" width="25" height="25"/>
         <image name="Blog Filled" width="25" height="25"/>
+        <image name="Contact" width="25" height="25"/>
+        <image name="Contact Filled" width="25" height="25"/>
         <image name="Facebook" width="33" height="33"/>
         <image name="Flickr" width="33" height="33"/>
         <image name="Home" width="25" height="25"/>
