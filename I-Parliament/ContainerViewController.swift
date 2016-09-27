@@ -11,6 +11,7 @@ import UIKit
 protocol ChildViewController {
 	func segmentChanged(_ sender: AnyObject)
 	var segmentedControl: UISegmentedControl! {get set}
+	var containerViewController: ContainerViewController! {get set}
 	var tableView: UITableView! {get set}
 }
 
@@ -54,6 +55,7 @@ class ContainerViewController: UIViewController {
 		delegate?.tableView.scrollIndicatorInsets = insets
 		
 		delegate?.segmentedControl = segmentedControl
+		delegate?.containerViewController = self
 	}
 	
 }

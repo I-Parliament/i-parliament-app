@@ -14,6 +14,7 @@ let apiEndpoint = "http://blog.iparliament.in/wp-json/wp/v2/"
 class BlogTableViewController: UITableViewController, ChildViewController {
 	
 	var segmentedControl: UISegmentedControl!
+	var containerViewController: ContainerViewController!
 	
 	var items = [BlogItem]()
 	

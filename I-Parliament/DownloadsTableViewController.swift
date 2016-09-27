@@ -12,6 +12,7 @@ import SwiftyJSON
 class DownloadsTableViewController: UITableViewController, ChildViewController {
 	
 	var segmentedControl: UISegmentedControl!
+	var containerViewController: ContainerViewController!
 	
 	var availableGroups = [AvailableGroup]()
 	var dataTask: URLSessionDataTask?
@@ -24,7 +25,7 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 	
 	func segmentChanged(_ sender: AnyObject) {
 		isEditing = false
-		navigationItem.setLeftBarButton(availableSelected ? nil : editButtonItem, animated: true)
+		containerViewController.navigationItem.leftBarButtonItem = availableSelected ? nil : editButtonItem
 		
 		tableView.reloadData() /* //TODO: Fix the animation in BlogViewController and then comment this line
 		tableView.beginUpdates()

@@ -702,7 +702,7 @@ democracyclub@iparliament.in</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbX-pJ-M4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="2330"/>
+            <point key="canvasLocation" x="1028" y="2330"/>
         </scene>
         <!--Contact-->
         <scene sceneID="JTw-7e-7LR">

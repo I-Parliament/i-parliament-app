@@ -56,5 +56,40 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeLocation</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Location</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.i-parliament.I-Parliament.locate</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Blog</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Blog</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.i-parliament.I-Parliament.blog</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Download</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Downloads</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.i-parliament.I-Parliament.downloads</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Contact</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Contacts</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.i-parliament.I-Parliament.contacts</string>
+		</dict>
+	</array>
 </dict>
 </plist>

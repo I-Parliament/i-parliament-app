@@ -15,6 +15,9 @@ class SplashScreenViewController: UIViewController {
 	
 	let maskView = UIView()
 	
+	var tabBarControllerIndex = 0
+	weak var rootTabBarController: UITabBarController?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		maskView.frame = view.frame
@@ -29,6 +32,11 @@ class SplashScreenViewController: UIViewController {
 		}, completion: { _ in
 			self.performSegue(withIdentifier: "showTabBarController", sender: nil)
 		})
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		rootTabBarController = segue.destination as? UITabBarController
+		rootTabBarController?.selectedIndex = tabBarControllerIndex
 	}
 
 }
