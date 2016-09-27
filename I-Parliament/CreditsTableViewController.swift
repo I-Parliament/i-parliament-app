@@ -12,7 +12,8 @@ class CreditsTableViewController: UITableViewController {
 	
 	let licenses = [
 		License(name: "Icons8", info: .url("https://icons8.com")),
-		License(name: "Google Maps SDK for iOS", info: .fileName("Google Maps"))
+		License(name: "Google Maps SDK for iOS", info: .fileName("Google Maps")),
+		License(name: "SwiftyJSON", info: .fileName("SwiftyJSON"))
 	]
 	
 	@IBAction func doneTapped(_ sender: AnyObject) {

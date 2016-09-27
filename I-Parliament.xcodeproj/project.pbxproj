@@ -29,6 +29,7 @@
 		5650B4D61D8C1A8700833E58 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650B4D51D8C1A8700833E58 /* HomePageViewController.swift */; };
 		5650B4D81D8C227100833E58 /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650B4D71D8C227100833E58 /* InfoItem.swift */; };
 		5654BE681D87C1690038F126 /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5654BE671D87C1690038F126 /* BlogTableViewCell.swift */; };
+		566C0A0A1D9A7DA0001BB349 /* SwiftyJSON.txt in Resources */ = {isa = PBXBuildFile; fileRef = 566C0A091D9A7DA0001BB349 /* SwiftyJSON.txt */; };
 		56B81BD31D847C5300AA637C /* BlogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81BD21D847C5300AA637C /* BlogTableViewController.swift */; };
 		56C608F41D7F102B00E7D7F4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 56C608F31D7F102B00E7D7F4 /* .gitignore */; };
 		56DFEABC1D8690D7004E2179 /* stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = 56DFEABB1D8690D7004E2179 /* stylesheet.css */; };
@@ -66,6 +67,7 @@
 		5650B4D51D8C1A8700833E58 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		5650B4D71D8C227100833E58 /* InfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
 		5654BE671D87C1690038F126 /* BlogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
+		566C0A091D9A7DA0001BB349 /* SwiftyJSON.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftyJSON.txt; sourceTree = "<group>"; };
 		56B81BD21D847C5300AA637C /* BlogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogTableViewController.swift; sourceTree = "<group>"; };
 		56C608F31D7F102B00E7D7F4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		56DFEABB1D8690D7004E2179 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = stylesheet.css; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				5605CFC51D89B4B000442D1D /* Google Maps.txt */,
+				566C0A091D9A7DA0001BB349 /* SwiftyJSON.txt */,
 			);
 			name = Licenses;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				5605CFC61D89B4B000442D1D /* Google Maps.txt in Resources */,
 				560EC0E51D787D1900D8C71D /* LaunchScreen.storyboard in Resources */,
 				5605CFC31D89B1B200442D1D /* Credits.storyboard in Resources */,
+				566C0A0A1D9A7DA0001BB349 /* SwiftyJSON.txt in Resources */,
 				56F10C431D7F175C0045DCB7 /* keys.plist in Resources */,
 				560EC0E21D787D1900D8C71D /* Assets.xcassets in Resources */,
 				560EC0E01D787D1900D8C71D /* Main.storyboard in Resources */,
