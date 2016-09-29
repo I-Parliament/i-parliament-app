@@ -44,7 +44,7 @@ class AvailableItemTableViewCell: UITableViewCell {
 	}
 	
 	func updateSaved() {
-		let image = isFileDownloaded ? #imageLiteral(resourceName: "Download Filled") : #imageLiteral(resourceName: "Download")
+		let image = isFileDownloaded ? #imageLiteral(resourceName: "Downloaded") : #imageLiteral(resourceName: "Download")
 		downloadButton.setImage(image, for: .normal)
 		accessoryView = downloadButton
 		downloadButton.sizeToFit()
