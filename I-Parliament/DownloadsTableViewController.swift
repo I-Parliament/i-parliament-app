@@ -93,11 +93,11 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 					let title = item["title"]["rendered"].string,
 					let id = item["id"].int,
 					let itemDescription = item["description"].string
-					else {return}
+					else {continue} //Move on to the next item
 				
 				let splitDescription = itemDescription.components(separatedBy: "Group: ")
 				
-				guard splitDescription.count == 2 else {continue} //Move on to the next item
+				guard splitDescription.count == 2 else {continue}
 				
 				let groupName = splitDescription[1].htmlDecoded
 				
