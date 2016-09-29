@@ -27,7 +27,7 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 		isEditing = false
 		containerViewController.navigationItem.leftBarButtonItem = availableSelected ? nil : editButtonItem
 		
-//		tableView.reloadData() /* //Comment this line to enable the animation (Do the same in BlogTableViewController)
+		tableView.reloadData() /* //Comment this line to enable the animation (Do the same in BlogTableViewController)
 		tableView.beginUpdates()
 		tableView.reloadSections([0], with: availableSelected ? .right : .left)
 		if availableGroups.count > 1 { //We need to add or remove the extra section
