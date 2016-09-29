@@ -229,12 +229,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 560EC0E91D787D1900D8C71D /* Build configuration list for PBXNativeTarget "I-Parliament" */;
 			buildPhases = (
+				567B18411D9D3830006F5F58 /* Set Build Number to Git Commits */,
 				BFD324EADF46E45D6EB97FAB /* [CP] Check Pods Manifest.lock */,
 				560EC0D31D787D1900D8C71D /* Sources */,
 				560EC0D41D787D1900D8C71D /* Frameworks */,
 				560EC0D51D787D1900D8C71D /* Resources */,
 				95C1681AEE2F3616AD2F2B60 /* [CP] Embed Pods Frameworks */,
 				3394C17C8F947FCBBB639CD8 /* [CP] Copy Pods Resources */,
+				567B18421D9D3889006F5F58 /* Set Build Number to Development */,
 			);
 			buildRules = (
 			);
@@ -314,6 +316,34 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-I-Parliament/Pods-I-Parliament-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		567B18411D9D3830006F5F58 /* Set Build Number to Git Commits */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number to Git Commits";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "gitCommits=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $gitCommits\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+		567B18421D9D3889006F5F58 /* Set Build Number to Development */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number to Development";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion DEVELOPMENT\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 		95C1681AEE2F3616AD2F2B60 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
