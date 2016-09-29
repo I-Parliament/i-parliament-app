@@ -525,7 +525,7 @@ democracyclub@iparliament.in</string>
                                                     <constraint firstAttribute="width" secondItem="5en-aD-bxL" secondAttribute="height" multiplier="1:1" id="F7V-2p-2HE"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.0" green="0.47999999999999998" blue="0.70999999999999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="https://www.flickr.com/people/iparliament/" image="Flickr"/>
+                                                <state key="normal" title="https://www.flickr.com/photos/iparliament/" image="Flickr"/>
                                                 <connections>
                                                     <action selector="openURL:" destination="rue-SB-L2P" eventType="touchUpInside" id="jCx-bx-r25"/>
                                                 </connections>
@@ -575,7 +575,7 @@ democracyclub@iparliament.in</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Bn-fu-Qob" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="Home" selectedImage="Home Filled" id="OdO-Rt-fPS"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2MT-b6-uI3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2MT-b6-uI3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -710,7 +710,7 @@ democracyclub@iparliament.in</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nCd-OG-iKK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Contact" image="Contact" selectedImage="Contact Filled" id="Kde-kf-Otp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mc9-j2-CSt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mc9-j2-CSt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
