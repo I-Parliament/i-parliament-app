@@ -30,11 +30,18 @@ class BlogTableViewCell: UITableViewCell {
 		}
 	}
 	
+	func removeThumbnail() {
+		DispatchQueue.main.async {
+			self.thumbnailView?.image = nil
+			self.thumbnailPadding.constant = 0
+			self.thumbnailWidth.constant = 0
+		}
+	}
+	
 	override func awakeFromNib() {
 		thumbnailWidthConstant = thumbnailWidth.constant
-		thumbnailWidth.constant = 0
 		thumbnailPaddingConstant = thumbnailPadding.constant
-		thumbnailPadding.constant = 0
+		removeThumbnail()
 	}
 	
 }

@@ -27,7 +27,7 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 		isEditing = false
 		containerViewController.navigationItem.leftBarButtonItem = availableSelected ? nil : editButtonItem
 		
-		tableView.reloadData() /* //TODO: Fix the animation in BlogViewController and then comment this line
+//		tableView.reloadData() /* //Comment this line to enable the animation (Do the same in BlogTableViewController)
 		tableView.beginUpdates()
 		tableView.reloadSections([0], with: availableSelected ? .right : .left)
 		if availableGroups.count > 1 { //We need to add or remove the extra section
@@ -35,7 +35,7 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 			let sectionFunction = availableSelected ? tableView.insertSections : tableView.deleteSections
 			sectionFunction(indexSet, .left)
 		}
-		tableView.endUpdates() //Rip animation*/
+		tableView.endUpdates() // */
 		
 		if availableSelected {
 			setupRefreshControl()

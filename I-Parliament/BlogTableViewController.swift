@@ -28,8 +28,9 @@ class BlogTableViewController: UITableViewController, ChildViewController {
 	let readableFormatter = DateFormatter()
 	
 	func segmentChanged(_ sender: AnyObject) {
-		//TODO: Replace this with tableView.reloadSections([0], with: ...) once the bug with the image view order is fixed
-		tableView.reloadData()
+		tableView.reloadData() /* //Comment this line to enable the animation (Do the same in DownloadsTableViewController)
+		let animation: UITableViewRowAnimation = iParliamentSelected ? .right : .left
+		tableView.reloadSections([0], with: animation) // */
 	}
 	
 	var iParliamentSelected: Bool {
@@ -128,13 +129,18 @@ class BlogTableViewController: UITableViewController, ChildViewController {
 		
         let cell = tableView.dequeueReusableCell(withIdentifier: "blogImageCell", for: indexPath) as! BlogTableViewCell
 		
-		let image = images.object(forKey: mediaID as NSNumber)
-		if mediaID > 0 && image == nil { //If 0 then there is no media for the image
-			ImageLoader.shared.image(for: mediaID) { image in
-				guard let image = image else {return}
-				self.images.setObject(image, forKey: mediaID as NSNumber)
+		if mediaID > 0 { //If the cell should have an image
+			if let image = images.object(forKey: mediaID as NSNumber) { //If the image exists, set it
 				cell.setThumbnail(image)
+			} else { //If the image doesn't exist, download it
+				ImageLoader.shared.image(for: mediaID) { image in
+					guard let image = image else {return}
+					self.images.setObject(image, forKey: mediaID as NSNumber)
+					cell.setThumbnail(image)
+				}
 			}
+		} else { //If the cell should not have an image, remove the old one if the cell is reused
+			cell.removeThumbnail()
 		}
 		
 		cell.titleLabel?.text = blogItem.title
