@@ -10,10 +10,10 @@ import UIKit
 import GoogleMaps
 
 enum ShortcutIdenitifier: String {
-	case locate
+	case location
 	case blog
 	case downloads
-	case contacts
+	case contact
 	
 	init?(fullIdentifier: String) {
 		guard let identifier = fullIdentifier.components(separatedBy: ".").last else {return nil}
@@ -54,13 +54,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let indexToSelect: Int
 		
 		switch type {
-		case .locate:
+		case .location:
 			indexToSelect = 1
 		case .blog:
 			indexToSelect = 2
 		case .downloads:
 			indexToSelect = 3
-		case .contacts:
+		case .contact:
 			indexToSelect = 4
 		}
 		

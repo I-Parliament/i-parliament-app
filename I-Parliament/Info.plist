@@ -45,7 +45,7 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Location</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.i-parliament.I-Parliament.locate</string>
+			<string>com.i-parliament.I-Parliament.location</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
@@ -57,7 +57,7 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>Download</string>
+			<string>Downloads</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Downloads</string>
 			<key>UIApplicationShortcutItemType</key>
@@ -67,9 +67,9 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>Contact</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Contacts</string>
+			<string>Contact</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.i-parliament.I-Parliament.contacts</string>
+			<string>com.i-parliament.I-Parliament.contact</string>
 		</dict>
 	</array>
 	<key>UILaunchStoryboardName</key>
