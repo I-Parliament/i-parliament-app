@@ -20,12 +20,12 @@ class PostViewController: UIViewController {
 	
 	var postType: PostType = .none
 	
-	lazy var isDocument: Bool = {
+	var isDocument: Bool {
 		if case .remote = self.postType {
 			return false
 		}
 		return true
-	}()
+	}
 	
 	let webView = WKWebView()
 	

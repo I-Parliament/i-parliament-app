@@ -43,14 +43,10 @@ class AvailableItemTableViewCell: UITableViewCell {
 		updateFunction?(self)
 	}
 	
-	func updateSaved(animated: Bool = false) {
+	func updateSaved() {
 		let image = isFileDownloaded ? #imageLiteral(resourceName: "Download Filled") : #imageLiteral(resourceName: "Download")
-		let duration = animated && isFileDownloaded ? animationDuration : 0
-		UIView.transition(with: downloadButton, duration: duration, options: .transitionCrossDissolve, animations: {
-			self.downloadButton.setImage(image, for: .normal)
-		}, completion: { _ in
-			self.accessoryView = self.downloadButton
-		})
+		downloadButton.setImage(image, for: .normal)
+		accessoryView = downloadButton
 		downloadButton.sizeToFit()
 	}
 

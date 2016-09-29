@@ -492,7 +492,7 @@ democracyclub@iparliament.in</string>
                                                     <constraint firstAttribute="width" secondItem="RMM-wj-ZGd" secondAttribute="height" multiplier="1:1" id="l7T-Z7-684"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.0" green="0.67000000000000004" blue="0.93000000000000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="https://www.facebook.com/I-Parliament-525074704336783/" image="Twitter"/>
+                                                <state key="normal" title="https://twitter.com/iparliament2016" image="Twitter"/>
                                                 <connections>
                                                     <action selector="openURL:" destination="rue-SB-L2P" eventType="touchUpInside" id="ghn-N9-OSj"/>
                                                 </connections>
@@ -503,7 +503,7 @@ democracyclub@iparliament.in</string>
                                                     <constraint firstAttribute="width" secondItem="Zjp-9u-wgn" secondAttribute="height" multiplier="1:1" id="dI3-El-pRt"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.32000000000000001" green="0.5" blue="0.64000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="https://www.facebook.com/I-Parliament-525074704336783/" image="Instagram"/>
+                                                <state key="normal" title="https://www.instagram.com/iparliament2016/" image="Instagram"/>
                                                 <connections>
                                                     <action selector="openURL:" destination="rue-SB-L2P" eventType="touchUpInside" id="TaZ-f8-dY8"/>
                                                 </connections>
@@ -525,7 +525,7 @@ democracyclub@iparliament.in</string>
                                                     <constraint firstAttribute="width" secondItem="5en-aD-bxL" secondAttribute="height" multiplier="1:1" id="F7V-2p-2HE"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.0" green="0.47999999999999998" blue="0.70999999999999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="https://www.facebook.com/I-Parliament-525074704336783/" image="Flickr"/>
+                                                <state key="normal" title="https://www.flickr.com/people/iparliament/" image="Flickr"/>
                                                 <connections>
                                                     <action selector="openURL:" destination="rue-SB-L2P" eventType="touchUpInside" id="jCx-bx-r25"/>
                                                 </connections>

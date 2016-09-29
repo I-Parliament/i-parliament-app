@@ -118,7 +118,7 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		//Always at least one section to make transitioning easier as handling a 0 case in segmentChanged(_:) would be harder
-		let availableSections = max(availableGroups.count, 1)
+		let availableSections = availableGroups.count//max(availableGroups.count, 1)
 		return availableSelected ? availableSections : 1
 	}
 
@@ -237,7 +237,7 @@ extension DownloadsTableViewController: AvailableItemDownloadDelegate {
 	func deleteFile(for cell: AvailableItemTableViewCell) { //Deletes the file associated with the cell'Ws item
 		urls(for: cell.availableItem).forEach {try? FileManager.default.removeItem(at: $0)}
 		fetchDownloaded()
-		cell.updateSaved(animated: true)
+		cell.updateSaved()
 	}
 	
 	func deleteItem(at indexPath: IndexPath) {
