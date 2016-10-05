@@ -24,7 +24,7 @@ class HomePageViewController: UIPageViewController {
 		tabBarController?.view.backgroundColor = .white
 		
 		if let controller = homeViewController(at: 0) {
-			setViewControllers([controller], direction: .forward, animated: false, completion: nil)
+			setViewControllers([controller], direction: .forward, animated: false)
 		}
 		
 		let pageControl = UIPageControl.appearance()

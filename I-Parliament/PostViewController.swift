@@ -33,7 +33,7 @@ class PostViewController: UIViewController {
 		guard case let .localFile(url) = postType else {return} //Weird way of saying: "Gimme a local file URL or get out"
 		let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
 		activityController.popoverPresentationController?.barButtonItem = sender
-		present(activityController, animated: true, completion: nil)
+		present(activityController, animated: true)
 	}
 	
     override func viewDidLoad() {

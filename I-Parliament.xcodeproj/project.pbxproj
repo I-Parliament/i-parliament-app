@@ -30,6 +30,7 @@
 		5650B4D81D8C227100833E58 /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650B4D71D8C227100833E58 /* InfoItem.swift */; };
 		5654BE681D87C1690038F126 /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5654BE671D87C1690038F126 /* BlogTableViewCell.swift */; };
 		566C0A0A1D9A7DA0001BB349 /* SwiftyJSON.txt in Resources */ = {isa = PBXBuildFile; fileRef = 566C0A091D9A7DA0001BB349 /* SwiftyJSON.txt */; };
+		566F7FCE1DA5381900D3356D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566F7FCD1DA5381900D3356D /* Utilities.swift */; };
 		56B81BD31D847C5300AA637C /* BlogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81BD21D847C5300AA637C /* BlogTableViewController.swift */; };
 		56C608F41D7F102B00E7D7F4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 56C608F31D7F102B00E7D7F4 /* .gitignore */; };
 		56DFEABC1D8690D7004E2179 /* stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = 56DFEABB1D8690D7004E2179 /* stylesheet.css */; };
@@ -68,6 +69,7 @@
 		5650B4D71D8C227100833E58 /* InfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
 		5654BE671D87C1690038F126 /* BlogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
 		566C0A091D9A7DA0001BB349 /* SwiftyJSON.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftyJSON.txt; sourceTree = "<group>"; };
+		566F7FCD1DA5381900D3356D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		56B81BD21D847C5300AA637C /* BlogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogTableViewController.swift; sourceTree = "<group>"; };
 		56C608F31D7F102B00E7D7F4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		56DFEABB1D8690D7004E2179 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = stylesheet.css; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		563419581D80668900044561 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				566F7FCD1DA5381900D3356D /* Utilities.swift */,
 				563419591D8066B900044561 /* AvailableGroup.swift */,
 				5634195B1D8066C300044561 /* AvailableItem.swift */,
 				563419631D8077B600044561 /* DownloadedItem.swift */,
@@ -394,6 +397,7 @@
 				5650B4D81D8C227100833E58 /* InfoItem.swift in Sources */,
 				5650B4D61D8C1A8700833E58 /* HomePageViewController.swift in Sources */,
 				56ECBB821D871F2100C52F7F /* CreditsTableViewController.swift in Sources */,
+				566F7FCE1DA5381900D3356D /* Utilities.swift in Sources */,
 				5634195A1D8066B900044561 /* AvailableGroup.swift in Sources */,
 				5634195C1D8066C300044561 /* AvailableItem.swift in Sources */,
 				5654BE681D87C1690038F126 /* BlogTableViewCell.swift in Sources */,

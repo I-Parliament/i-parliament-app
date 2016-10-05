@@ -261,39 +261,3 @@ extension DownloadsTableViewController: AvailableItemDownloadDelegate {
 		}
 	}
 }
-
-extension NSMutableAttributedString {
-	func setBaseFont(baseFont: UIFont, preserveFontSizes: Bool = false) {
-		let baseDescriptor = baseFont.fontDescriptor
-		beginEditing()
-		enumerateAttribute(NSFontAttributeName, in: NSMakeRange(0, length), options: []) { object, range, stop in
-			if let font = object as? UIFont {
-				// Instantiate a font with our base font's family, but with the current range's traits
-				let traits = font.fontDescriptor.symbolicTraits
-				guard let descriptor = baseDescriptor.withSymbolicTraits(traits) else {return}
-				let newFont = UIFont(descriptor: descriptor, size: preserveFontSizes ? descriptor.pointSize : baseDescriptor.pointSize)
-				self.removeAttribute(NSFontAttributeName, range: range)
-				self.addAttribute(NSFontAttributeName, value: newFont, range: range)
-			}
-		}
-		endEditing()
-	}
-}
-
-extension String {
-	
-	var htmlAttributed: NSAttributedString? {
-		guard let encodedData = data(using: .utf8) else {return nil}
-		let attributeOptions: [String: Any] = [
-			NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-			NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue
-		]
-		return try? NSAttributedString(data: encodedData, options: attributeOptions, documentAttributes: nil)
-	}
-	
-	var htmlDecoded: String {
-		guard contains("&") else {return self}
-		return htmlAttributed?.string ?? self
-	}
-	
-}

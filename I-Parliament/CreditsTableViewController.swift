@@ -17,7 +17,7 @@ class CreditsTableViewController: UITableViewController {
 	]
 	
 	@IBAction func doneTapped(_ sender: AnyObject) {
-		dismiss(animated: true, completion: nil)
+		dismiss(animated: true)
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
