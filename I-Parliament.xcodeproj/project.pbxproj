@@ -229,8 +229,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 560EC0E91D787D1900D8C71D /* Build configuration list for PBXNativeTarget "I-Parliament" */;
 			buildPhases = (
-				567B18411D9D3830006F5F58 /* Set Build Number to Git Commits */,
 				BFD324EADF46E45D6EB97FAB /* [CP] Check Pods Manifest.lock */,
+				567B18411D9D3830006F5F58 /* Set Build Number to Git Commits */,
 				560EC0D31D787D1900D8C71D /* Sources */,
 				560EC0D41D787D1900D8C71D /* Frameworks */,
 				560EC0D51D787D1900D8C71D /* Resources */,
