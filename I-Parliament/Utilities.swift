@@ -10,18 +10,18 @@ import UIKit
 import SwiftyJSON
 
 extension NSMutableAttributedString {
-	func setBaseFont(baseFont: UIFont, preserveFontSizes: Bool = false) {
+	func setBaseFont(_ baseFont: UIFont) {
 		let baseDescriptor = baseFont.fontDescriptor
 		beginEditing()
-		enumerateAttribute(NSFontAttributeName, in: NSMakeRange(0, length), options: []) { object, range, stop in
-			if let font = object as? UIFont {
-				// Instantiate a font with our base font's family, but with the current range's traits
-				let traits = font.fontDescriptor.symbolicTraits
-				guard let descriptor = baseDescriptor.withSymbolicTraits(traits) else {return}
-				let newFont = UIFont(descriptor: descriptor, size: preserveFontSizes ? descriptor.pointSize : baseDescriptor.pointSize)
-				self.removeAttribute(NSFontAttributeName, range: range)
-				self.addAttribute(NSFontAttributeName, value: newFont, range: range)
-			}
+		enumerateAttribute(NSFontAttributeName, in: NSMakeRange(0, length)) { object, range, _ in
+			guard let font = object as? UIFont else {return}
+			let traits = font.fontDescriptor.symbolicTraits
+			//Creates a UIFontDescriptor with the base font, preserving traits of the current font (bold, italics, etc.)
+			guard let descriptor = baseDescriptor.withSymbolicTraits(traits) else {return}
+			//Converts the fontDescriptor into a UIFont
+			let newFont = UIFont(descriptor: descriptor, size: baseDescriptor.pointSize)
+			removeAttribute(NSFontAttributeName, range: range)
+			addAttribute(NSFontAttributeName, value: newFont, range: range)
 		}
 		endEditing()
 	}

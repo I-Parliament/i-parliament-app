@@ -149,7 +149,7 @@ class BlogTableViewController: UITableViewController, ChildViewController {
 		}
 		
 		let mutableAttributedString = blogItem.attributedString.mutableCopy() as! NSMutableAttributedString
-		mutableAttributedString.setBaseFont(baseFont: .systemFont(ofSize: 16))
+		mutableAttributedString.setBaseFont(.systemFont(ofSize: 16))
 		
 		let stringRange = NSMakeRange(0, mutableAttributedString.length)
 		let paragraphStyle = NSMutableParagraphStyle()
