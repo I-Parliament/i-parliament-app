@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 extension NSMutableAttributedString {
 	func setBaseFont(baseFont: UIFont, preserveFontSizes: Bool = false) {
@@ -54,5 +55,58 @@ extension UIViewController {
 		alertController.addAction(okAction)
 		additionalActions?.forEach {alertController.addAction($0)}
 		present(alertController, animated: animated, completion: completion)
+	}
+}
+
+struct ImageLoader {
+	static let shared = ImageLoader()
+	
+	private func image(for url: URL, completionHandler: @escaping (UIImage?) -> ()) {
+		
+		let downloadTask = URLSession.shared.dataTask(with: url) { data, response, error in
+			
+			guard let data = data,
+				let image = UIImage(data: data),
+				error == nil
+				else {
+					completionHandler(nil)
+					return
+			}
+			
+			completionHandler(image)
+		}
+		
+		downloadTask.resume()
+	}
+	
+	func image(for id: Int, completionHandler: @escaping (UIImage?) -> ()) {
+		
+		guard let queryURL = URL(string: "\(apiEndpoint)media?include=\(id)") else {
+			completionHandler(nil)
+			return
+		}
+		
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
+		let dataTask = URLSession.shared.dataTask(with: queryURL) { data, response, error in
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+			guard let data = data,
+				let body = JSON(data: data).array,
+				error == nil && !body.isEmpty
+				else {
+					completionHandler(nil)
+					return
+			}
+			
+			guard let stringURL = body[0]["source_url"].string,
+				let url = URL(string: stringURL)
+				else {
+					completionHandler(nil)
+					return
+			}
+			
+			self.image(for: url, completionHandler: completionHandler)
+		}
+		
+		dataTask.resume()
 	}
 }
