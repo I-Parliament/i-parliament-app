@@ -118,7 +118,7 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		//Always at least one section to make transitioning easier as handling a 0 case in segmentChanged(_:) would be harder
-		let availableSections = availableGroups.count//max(availableGroups.count, 1)
+		let availableSections = max(availableGroups.count, 1)
 		return availableSelected ? availableSections : 1
 	}
 

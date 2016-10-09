@@ -63,20 +63,16 @@ struct ImageLoader {
 	
 	private func image(for url: URL, completionHandler: @escaping (UIImage?) -> ()) {
 		
-		let downloadTask = URLSession.shared.dataTask(with: url) { data, response, error in
-			
+		URLSession.shared.dataTask(with: url) { data, response, error in
 			guard let data = data,
 				let image = UIImage(data: data),
-				error == nil
-				else {
+				error == nil else {
 					completionHandler(nil)
 					return
 			}
 			
 			completionHandler(image)
-		}
-		
-		downloadTask.resume()
+		}.resume()
 	}
 	
 	func image(for id: Int, completionHandler: @escaping (UIImage?) -> ()) {
@@ -87,26 +83,18 @@ struct ImageLoader {
 		}
 		
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		let dataTask = URLSession.shared.dataTask(with: queryURL) { data, response, error in
+		URLSession.shared.dataTask(with: queryURL) { data, response, error in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
-			guard let data = data,
-				let body = JSON(data: data).array,
-				error == nil && !body.isEmpty
-				else {
-					completionHandler(nil)
-					return
-			}
 			
-			guard let stringURL = body[0]["source_url"].string,
-				let url = URL(string: stringURL)
-				else {
+			guard let data = data,
+				let stringURL = JSON(data: data)[0]["source_url"].string,
+				let url = URL(string: stringURL),
+				error == nil else {
 					completionHandler(nil)
 					return
 			}
 			
 			self.image(for: url, completionHandler: completionHandler)
-		}
-		
-		dataTask.resume()
+		}.resume()
 	}
 }
