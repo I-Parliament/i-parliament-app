@@ -16,7 +16,7 @@ class BlogTableViewController: UITableViewController, ChildViewController {
 	var segmentedControl: UISegmentedControl!
 	var containerViewController: ContainerViewController!
 	
-	var items = [BlogItem]()
+	var items: [BlogItem] = []
 	
 	let images = NSCache<NSNumber, UIImage>() //More optimised than a Dictionary
 	

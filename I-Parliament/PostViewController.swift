@@ -21,9 +21,7 @@ class PostViewController: UIViewController {
 	var postType: PostType = .none
 	
 	var isDocument: Bool {
-		if case .remote = self.postType {
-			return false
-		}
+		if case .remote = postType {return false}
 		return true
 	}
 	
@@ -39,23 +37,28 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		automaticallyAdjustsScrollViewInsets = !isDocument
-		webView.translatesAutoresizingMaskIntoConstraints = false
+		webView.translatesAutoresizingMaskIntoConstraints = false //False enables AutoLayout
 		webView.navigationDelegate = self
 		view.addSubview(webView)
 		
+		//Bottom of the NavBar / top of view
 		let topAnchor = isDocument ? topLayoutGuide.bottomAnchor : view.topAnchor
+		//Top of TabBar / bottom of view
 		let bottomAnchor = isDocument ? bottomLayoutGuide.topAnchor : view.bottomAnchor
 		
-		webView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-		webView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-		webView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-		webView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+		//Doing AutoLayout programatically (WKWebView can't be used in IB)
+		NSLayoutConstraint.activate([
+			webView.topAnchor.constraint(equalTo: topAnchor),
+			webView.bottomAnchor.constraint(equalTo: bottomAnchor),
+			webView.leftAnchor.constraint(equalTo: view.leftAnchor),
+			webView.rightAnchor.constraint(equalTo: view.rightAnchor)
+		])
 		
 		switch postType {
-		case .remote(let url), .remoteFile(let url):
+		case let .remote(url), let .remoteFile(url):
 			let request = URLRequest(url: url)
 			webView.load(request)
-		case .localFile(let url):
+		case let .localFile(url):
 			webView.loadFileURL(url, allowingReadAccessTo: url)
 			navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped(_:)))
 		case .none:

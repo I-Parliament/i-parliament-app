@@ -14,14 +14,14 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 	var segmentedControl: UISegmentedControl!
 	var containerViewController: ContainerViewController!
 	
-	var availableGroups = [AvailableGroup]()
+	var availableGroups: [AvailableGroup] = []
 	var dataTask: URLSessionDataTask?
 	
 	var availableSelected: Bool {
 		return segmentedControl?.selectedSegmentIndex == 0
 	}
 	
-	var downloadedItems = [DownloadedItem]()
+	var downloadedItems: [DownloadedItem] = []
 	
 	func segmentChanged(_ sender: AnyObject) {
 		isEditing = false

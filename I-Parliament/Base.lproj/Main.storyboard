@@ -307,7 +307,7 @@ More Content
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="iA8-rv-SJl"/>
                                     <barButtonItem style="plain" id="GFo-Ej-Qhc">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Osp-Ev-Kzn">
-                                            <rect key="frame" x="43" y="7" width="288" height="30"/>
+                                            <rect key="frame" x="356" y="485" width="288" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="Available"/>
@@ -594,7 +594,7 @@ democracyclub@iparliament.in</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AdS-2W-1Z0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Location" image="Locate" selectedImage="Locate Filled" id="hW6-gV-Qxi"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CMD-pt-2BL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CMD-pt-2BL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -613,7 +613,7 @@ democracyclub@iparliament.in</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8P1-ke-NC5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Blog" image="Blog" selectedImage="Blog Filled" id="CPM-G8-eGa"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CI5-Nh-v6A">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CI5-Nh-v6A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -632,7 +632,7 @@ democracyclub@iparliament.in</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xa9-NN-3Xt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="downloads" id="XbB-3S-fjc"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="c6J-gz-QbH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c6J-gz-QbH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

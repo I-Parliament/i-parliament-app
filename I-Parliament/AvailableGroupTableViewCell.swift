@@ -34,7 +34,7 @@ class AvailableGroupTableViewCell: UITableViewCell {
 		
 		updateDisclosureView(duration: animationDuration)
 		
-		var newIndexPaths = [IndexPath]()
+		var newIndexPaths: [IndexPath] = []
 		for index in availableGroup.items.indices {
 			let newIndexPath = IndexPath(row: index + 1, section: section)
 			newIndexPaths.append(newIndexPath)

@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
 	var infoItem: InfoItem!
 	
 	let inset: CGFloat = 4
+	let scrollInset: CGFloat = 4
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,7 +26,7 @@ class HomeViewController: UIViewController {
 		imageView.image = infoItem.image
 		textView.text = infoItem.body
 		textView.contentInset.top = inset
-		textView.scrollIndicatorInsets.top = inset + 4
+		textView.scrollIndicatorInsets.top = inset + scrollInset
 	}
 	
 	override func viewDidLayoutSubviews() {
