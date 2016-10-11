@@ -15,9 +15,8 @@ class AvailableGroupTableViewCell: UITableViewCell {
 	var availableGroup: AvailableGroup! {
 		didSet {
 			textLabel?.text = availableGroup.title
-			let items = availableGroup.items.count
-			let detailString = "\(items) item\(items == 1 ? "" : "s")"
-			detailTextLabel?.text = detailString
+			let count = availableGroup.items.count
+			detailTextLabel?.text = "\(count) item\(count == 1 ? "" : "s")"
 		}
 	}
 	

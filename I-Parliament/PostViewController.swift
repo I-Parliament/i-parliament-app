@@ -19,13 +19,16 @@ enum PostType {
 class PostViewController: UIViewController {
 	
 	var postType: PostType = .none
+	weak var availableCell: AvailableItemTableViewCell?
+	var delegate: DownloadDelegate?
+	var downloadedCellIndexPath: IndexPath?
 	
 	var isDocument: Bool {
 		if case .remote = postType {return false}
 		return true
 	}
 	
-	let webView = WKWebView()
+	var webView = WKWebView()
 	
 	func shareTapped(_ sender: UIBarButtonItem) {
 		guard case let .localFile(url) = postType else {return} //Weird way of saying: "Gimme a local file URL or get out"
@@ -36,6 +39,13 @@ class PostViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		if #available(iOS 10.0, *), case .remote = postType {
+			let configuration = WKWebViewConfiguration()
+			configuration.dataDetectorTypes = [.phoneNumber, .link, .address, .calendarEvent]
+			webView = WKWebView(frame: .zero, configuration: configuration)
+		}
+		
 		automaticallyAdjustsScrollViewInsets = !isDocument
 		webView.translatesAutoresizingMaskIntoConstraints = false //False enables AutoLayout
 		webView.navigationDelegate = self
@@ -104,6 +114,34 @@ extension PostViewController: WKNavigationDelegate {
 			UIApplication.shared.openURL(requestURL) //And instead open the requested URL in Safari
 		} else {
 			decisionHandler(.allow) //Otherwise allow the request
+		}
+	}
+}
+
+extension PostViewController {
+	override var previewActionItems: [UIPreviewActionItem] {
+		if case .remoteFile = postType,
+			let cell = availableCell, let delegate = cell.delegate {
+			
+			return cell.isFileDownloaded ? [UIPreviewAction(title: "Delete", style: .destructive) { _, _ in
+				delegate.deleteFile(for: cell)
+			}] : [UIPreviewAction(title: "Download", style: .default) { _, _ in
+				delegate.downloadFile(for: cell)
+			}]
+			
+		} else if case let .localFile(url) = postType,
+			let delegate = delegate,
+			let indexPath = downloadedCellIndexPath {
+			return [
+				UIPreviewAction(title: "Share", style: .default) { _, _ in
+					delegate.share(url)
+				},
+				UIPreviewAction(title: "Delete", style: .destructive) { _, _ in
+					delegate.deleteItem(at: indexPath)
+				}
+			]
+		} else {
+			return []
 		}
 	}
 }

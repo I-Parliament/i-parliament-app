@@ -8,15 +8,17 @@
 
 import UIKit
 
-protocol AvailableItemDownloadDelegate {
+protocol DownloadDelegate {
 	func urls(for item: AvailableItem?) -> [URL]
 	func downloadFile(for cell: AvailableItemTableViewCell)
 	func deleteFile(for cell: AvailableItemTableViewCell)
+	func deleteItem(at indexPath: IndexPath)
+	func share(_ url: URL)
 }
 
 class AvailableItemTableViewCell: UITableViewCell {
 	
-	var delegate: AvailableItemDownloadDelegate?
+	var delegate: DownloadDelegate?
 	
 	var isFileDownloaded: Bool {
 		return delegate?.urls(for: availableItem).isEmpty == false

@@ -175,7 +175,7 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let senderRow: IndexPath?
-		if let cell = (sender as? UITableViewCell) {
+		if let cell = sender as? UITableViewCell {
 			senderRow = tableView.indexPath(for: cell)
 		} else {
 			senderRow = nil
@@ -189,18 +189,33 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 			let item = group.items[indexPath.row - 1]
 			postController.postType = .remoteFile(item.url)
 			postController.title = item.title
-			return
+			postController.availableCell = sender as? AvailableItemTableViewCell
+		} else {
+			let item = downloadedItems[indexPath.row]
+			postController.postType = .localFile(item.url)
+			postController.downloadedCellIndexPath = senderRow
+			postController.delegate = self
+			postController.title = item.title
 		}
-		
-		let item = downloadedItems[indexPath.row]
-		postController.postType = .localFile(item.url)
-		postController.title = item.title
 	}
 }
 
 //MARK: - File and download management
 
-extension DownloadsTableViewController: AvailableItemDownloadDelegate {
+extension DownloadsTableViewController: DownloadDelegate {
+	
+	//The file may have multiple URLs (because of an undetected bug), so fetch all instances of the file by filtering by id
+	func urls(for item: AvailableItem? = nil) -> [URL] {
+		let fileManager = FileManager.default
+		guard let documents = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false),
+			let fileURLs = try? fileManager.contentsOfDirectory(at: documents, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
+			else {return []}
+		if let id = item?.id {
+			return fileURLs.filter { id == DownloadedItem(url: $0)?.id }
+		} else {
+			return fileURLs
+		}
+	}
 	
 	func fetchDownloaded() {
 		downloadedItems = []
@@ -248,16 +263,8 @@ extension DownloadsTableViewController: AvailableItemDownloadDelegate {
 		tableView.deleteRows(at: [indexPath], with: .automatic)
 	}
 	
-	//The file may have multiple URLs (because of an undetected bug), so fetch all instances of the file by filtering by id
-	func urls(for item: AvailableItem? = nil) -> [URL] {
-		let fileManager = FileManager.default
-		guard let documents = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false),
-			let fileURLs = try? fileManager.contentsOfDirectory(at: documents, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
-			else {return []}
-		if let id = item?.id {
-			return fileURLs.filter { id == DownloadedItem(url: $0)?.id }
-		} else {
-			return fileURLs
-		}
+	func share(_ url: URL) {
+		let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+		present(activityController, animated: true)
 	}
 }
