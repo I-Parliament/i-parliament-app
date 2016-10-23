@@ -20,6 +20,11 @@ class ContactViewController: UIViewController {
 	
 	var firstShow = true
 	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		contactTextView.delegate = self
+	}
+
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		if firstShow {
@@ -29,4 +34,13 @@ class ContactViewController: UIViewController {
 		}
 	}
 
+}
+
+extension ContactViewController: UITextViewDelegate {
+	
+	func textViewDidChangeSelection(_ textView: UITextView) {
+		guard !NSEqualRanges(textView.selectedRange, NSMakeRange(0, 0)) else {return}
+		textView.selectedRange = NSMakeRange(0, 0)
+	}
+	
 }
