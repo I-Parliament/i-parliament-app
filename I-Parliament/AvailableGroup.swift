@@ -9,9 +9,9 @@
 import Foundation
 
 class AvailableGroup { //Not a struct as it needs to be passed by reference
-	var title: String
+	let title: String
 	var items: [AvailableItem]
-	var expanded: Bool = false
+	var expanded = false
 	
 	init(title: String, items: [AvailableItem]) {
 		self.title = title

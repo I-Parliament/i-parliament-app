@@ -88,25 +88,15 @@ class DownloadsTableViewController: UITableViewController, ChildViewController {
 			self.availableGroups = []
 			
 			for item in body {
-				guard let stringURL = item["source_url"].string,
-					let url = URL(string: stringURL),
-					let title = item["title"]["rendered"].string,
-					let id = item["id"].int,
-					let itemDescription = item["description"].string
-					else {continue} //Move on to the next item
+				guard let availableItem = AvailableItem(json: item) else {continue}
 				
-				let splitDescription = itemDescription.components(separatedBy: "Group: ")
-				
-				guard splitDescription.count == 2 else {continue}
-				
-				let groupName = splitDescription[1].htmlDecoded
-				
-				let availableItem = AvailableItem(id: id, title: title.htmlDecoded, url: url)
-				
-				if let index = self.availableGroups.index(where: {$0.title == groupName}) {
+				// If the item's group already exists
+				if let index = self.availableGroups.index(where: {$0.title == availableItem.groupName}) {
+					// Append the item to that group
 					self.availableGroups[index].items.append(availableItem)
 				} else {
-					let availableGroup = AvailableGroup(title: groupName, items: [availableItem])
+					// Otherwise it's a new group, so create it and add the item to it
+					let availableGroup = AvailableGroup(title: availableItem.groupName, items: [availableItem])
 					self.availableGroups.append(availableGroup)
 				}
 			}

@@ -9,9 +9,9 @@
 import Foundation
 
 struct DownloadedItem {
-	var id: Int
-	var title: String
-	var url: URL
+	let id: Int
+	let title: String
+	let url: URL
 	
 	init?(url: URL) { //Constructs a DownloadedItem given a local file URL (by extracting the parameters from the file name)
 		let delimiter = "_"

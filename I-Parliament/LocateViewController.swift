@@ -14,10 +14,14 @@ class LocateViewController: UIViewController {
 	var mapView: GMSMapView!
 	
 	@IBAction func directionsTapped(_ sender: AnyObject) {
-		if let url = URL(string: "comgooglemaps://?daddr=Jawahar+Bhawan,+Raisina+Road,+Windsor+Place,+New+Delhi,+Delhi+110001"), UIApplication.shared.canOpenURL(url) {
+		let address = "Jawahar Bhawan, Raisina Road, Windsor Place, New Delhi, Delhi 110001"
+		let escapedAddress = address.replacingOccurrences(of: " ", with: "+")
+		let schemeURL = "comgooglemaps://?daddr=\(escapedAddress)"
+		let webURL = "https://google.com/maps/dir//\(escapedAddress)"
+		if let url = URL(string: schemeURL), UIApplication.shared.canOpenURL(url) {
 			UIApplication.shared.openURL(url)
-		} else {
-			UIApplication.shared.openURL(URL(string: "https://google.com/maps/dir//Jawahar+Bhawan,+Raisina+Road,+Windsor+Place,+New+Delhi,+Delhi+110001")!)
+		} else if let url = URL(string: webURL) {
+			UIApplication.shared.openURL(url)
 		}
 	}
 	
@@ -31,7 +35,7 @@ class LocateViewController: UIViewController {
 		let marker = GMSMarker(position: position)
 		marker.title = "Jawahar Bhawan"
 		marker.snippet = "Raisina Road, Windsor Place,\nNew Delhi 110001"
-		marker.appearAnimation = kGMSMarkerAnimationPop
+		marker.appearAnimation = .pop
 		marker.map = mapView
 		mapView.selectedMarker = marker
 	}

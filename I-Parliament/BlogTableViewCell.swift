@@ -22,26 +22,28 @@ class BlogTableViewCell: UITableViewCell {
 	var thumbnailWidthConstant: CGFloat!
 	var thumbnailPaddingConstant: CGFloat!
 	
-	func setThumbnail(_ image: UIImage) {
-		DispatchQueue.main.async {
-			self.thumbnailView?.image = image
-			self.thumbnailPadding.constant = self.thumbnailPaddingConstant
-			self.thumbnailWidth.constant = self.thumbnailWidthConstant
-		}
-	}
-	
-	func removeThumbnail() {
-		DispatchQueue.main.async {
-			self.thumbnailView?.image = nil
-			self.thumbnailPadding.constant = 0
-			self.thumbnailWidth.constant = 0
+	var thumbnail: UIImage? {
+		get { return thumbnailView?.image }
+		set {
+			DispatchQueue.main.async {
+				self.thumbnailView?.image = newValue
+				let constantMultiplier: CGFloat = newValue == nil ? 0 : 1
+				self.thumbnailPadding.constant = self.thumbnailPaddingConstant * constantMultiplier
+				self.thumbnailWidth.constant = self.thumbnailWidthConstant * constantMultiplier
+			}
 		}
 	}
 	
 	override func awakeFromNib() {
+		super.awakeFromNib()
 		thumbnailWidthConstant = thumbnailWidth.constant
 		thumbnailPaddingConstant = thumbnailPadding.constant
-		removeThumbnail()
+		thumbnail = nil
+	}
+	
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		thumbnail = nil
 	}
 	
 }

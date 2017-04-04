@@ -24,9 +24,6 @@ class BlogTableViewController: UITableViewController, ChildViewController {
 	var nextPage = 1
 	var shouldLoadNext = true
 	
-	var dateFormatter = DateFormatter()
-	let readableFormatter = DateFormatter()
-	
 	func segmentChanged(_ sender: AnyObject) {
 		tableView.reloadData() /* //Comment this line to enable the animation (Do the same in DownloadsTableViewController)
 		let animation: UITableViewRowAnimation = iParliamentSelected ? .right : .left
@@ -53,12 +50,6 @@ class BlogTableViewController: UITableViewController, ChildViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-		dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
-		
-		readableFormatter.dateStyle = .short
-		
 		setupRefreshControl()
 		downloadContent()
     }
@@ -92,23 +83,10 @@ class BlogTableViewController: UITableViewController, ChildViewController {
 			guard let data = data,
 				let body = JSON(data: data).array else {return}
 			
-			//The ternary part of this expression either adds onto or resets the existing array
-			//The flatMap goes through each of the items in body and returns the corresponding blog item.
-			//If the corresponding blog item is nil, it's removed (hence flatMap and not just map)
-			self.items = (fetchNext ? self.items : []) + body.flatMap { item -> BlogItem? in
-				guard let title = item["title"]["rendered"].string,
-					let excerpt = item["excerpt"]["rendered"].string,
-					let stringURL = item["link"].string,
-					let url = URL(string: stringURL + "#main") //We want to directly jump to #main on the webpage
-					else {return nil}
-				
-				return BlogItem(title: title,
-				                url: url,
-				                date: self.dateFormatter.date(from: item["date_gmt"].string ?? ""),
-				                mediaID: item["featured_media"].int,
-				                excerpt: excerpt,
-				                categories: item["categories"].arrayObject as? [Int])
-			}
+			//If fetchNext is true then add onto the existing array, otherwise start fresh
+			let startItems: [BlogItem] = fetchNext ? self.items : []
+			//flatMap returns all BlogItems that were successfully initialised from the JSON
+			self.items = startItems + body.flatMap(BlogItem.init)
 		}
 		dataTask?.resume()
 	}
@@ -131,21 +109,21 @@ class BlogTableViewController: UITableViewController, ChildViewController {
 		
 		if mediaID > 0 { //If the cell should have an image
 			if let image = images.object(forKey: mediaID as NSNumber) { //If the image exists, set it
-				cell.setThumbnail(image)
+				cell.thumbnail = image
 			} else { //If the image doesn't exist, download it
 				ImageLoader.shared.image(for: mediaID) { image in
 					guard let image = image else {return}
 					self.images.setObject(image, forKey: mediaID as NSNumber)
-					cell.setThumbnail(image)
+					cell.thumbnail = image
 				}
 			}
 		} else { //If the cell should not have an image, remove the old one if the cell is reused
-			cell.removeThumbnail()
+			cell.thumbnail = nil
 		}
 		
 		cell.titleLabel?.text = blogItem.title
-		if let date = blogItem.date {
-			cell.dateLabel?.text = readableFormatter.string(from: date)
+		if let dateString = blogItem.dateString {
+			cell.dateLabel?.text = dateString
 		}
 		
 		let mutableAttributedString = blogItem.attributedString.mutableCopy() as! NSMutableAttributedString
@@ -180,7 +158,7 @@ class BlogTableViewController: UITableViewController, ChildViewController {
 	
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let senderRow: IndexPath?
-		if let cell = (sender as? UITableViewCell) {
+		if let cell = sender as? UITableViewCell {
 			senderRow = tableView.indexPath(for: cell)
 		} else {
 			senderRow = nil
